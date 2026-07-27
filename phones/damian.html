@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Damian Crosse — Phone</title>
+<style>
+:root{
+  --ink:#0b1020;--navy:#111a33;--indigo:#243a69;--blue:#5479b8;--paper:#edf1f7;
+  --red:#9d4d56;--green:#8da58c;--gold:#c7a76b;--silver:#bfc8d8;--line:rgba(221,231,245,.17)
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+ display:grid;place-items:center;overflow:hidden;
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:white;
+ background:
+ radial-gradient(circle at 18% 20%,rgba(49,76,131,.22),transparent 28%),
+ radial-gradient(circle at 82% 78%,rgba(157,77,86,.12),transparent 30%),
+ linear-gradient(135deg,#060a13,#10182a 55%,#080b13)
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;
+ background:
+ repeating-linear-gradient(0deg,transparent 0 31px,rgba(255,255,255,.035) 32px),
+ repeating-linear-gradient(90deg,transparent 0 31px,rgba(255,255,255,.035) 32px)
+}
+.stage{display:grid;grid-template-columns:minmax(320px,390px) 280px;gap:44px;align-items:center;padding:24px}
+.phone{
+ width:min(390px,92vw);height:min(820px,92vh);position:relative;padding:11px;border-radius:50px;
+ background:linear-gradient(145deg,#c9d0da,#5c6676 38%,#181d27 62%,#aeb7c4);
+ box-shadow:0 40px 100px #000c,inset 0 0 0 1px #fff7,inset 0 0 20px #070a10
+}
+.screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:39px;background:#101626}
+.wallpaper{
+ position:absolute;inset:0;
+ background:
+ linear-gradient(180deg,rgba(10,15,28,.03),rgba(7,11,20,.7)),
+ radial-gradient(circle at 70% 18%,rgba(129,155,210,.18),transparent 17%),
+ linear-gradient(145deg,#263759,#17233d 45%,#0e1425 72%,#090d17)
+}
+.wallpaper:before{
+ content:"";position:absolute;inset:0;opacity:.45;
+ background:
+ linear-gradient(90deg,transparent 11%,rgba(255,255,255,.05) 11.2%,transparent 11.4%),
+ repeating-linear-gradient(0deg,transparent 0 44px,rgba(255,255,255,.035) 45px 46px),
+ linear-gradient(28deg,transparent 47%,rgba(199,167,107,.11) 48% 49%,transparent 50%);
+ background-size:auto,auto,180px 180px
+}
+.wallpaper:after{
+ content:"[SOURCE VERIFIED]";position:absolute;left:-26px;bottom:190px;transform:rotate(-90deg);
+ font:11px/1 monospace;letter-spacing:.24em;color:#d6dfef25
+}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:112px;height:28px;border-radius:18px;background:#030509;z-index:30}
+.status{height:42px;padding:14px 21px 0;display:flex;justify-content:space-between;position:relative;z-index:20;font-size:12px;font-weight:800}
+.home,.app{position:absolute;inset:42px 0 0;padding:18px 21px 25px;transition:.4s cubic-bezier(.2,.8,.2,1)}
+.home{display:flex;flex-direction:column}
+.hero{margin-top:23px}
+.date{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d8e1ef}
+.clock{font:700 61px/1 Georgia,serif;letter-spacing:-.06em;text-shadow:2px 0 #5479b855,-2px 0 #9d4d5655}
+.subtitle{font-size:12px;margin-top:7px;color:#e4e9f1}
+.audit{
+ margin-top:21px;padding:16px;border-radius:21px;border:1px solid var(--line);
+ background:linear-gradient(135deg,rgba(239,244,251,.14),rgba(15,24,43,.53));
+ backdrop-filter:blur(16px);box-shadow:inset 0 1px #fff3,0 14px 28px #05091366
+}
+.audit-head{display:flex;justify-content:space-between;align-items:center}
+.audit-head strong{font:11px monospace;letter-spacing:.12em}
+.ok{font:10px monospace;color:#b8d0b4;border:1px solid #8da58c55;padding:4px 7px;border-radius:4px}
+.metric{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:11px;font-size:12px}
+.bar{grid-column:1/3;height:6px;border-radius:6px;background:#ffffff10;overflow:hidden}
+.bar:before{content:"";display:block;width:86%;height:100%;background:linear-gradient(90deg,#5479b8,#8da58c)}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 13px;margin-top:auto}
+.app-btn{border:0;background:none;color:white;padding:0;text-align:center;cursor:pointer}
+.icon{width:57px;height:57px;margin:auto;border-radius:16px;display:grid;place-items:center;font:22px monospace;border:1px solid #fff3;box-shadow:inset 0 1px #fff5,0 8px 18px #05081188}
+.app-btn span{display:block;font-size:9px;margin-top:6px;text-shadow:0 1px 4px #0a1020}
+.i1{background:linear-gradient(145deg,#6a87bd,#263c69)}.i2{background:linear-gradient(145deg,#d8dee9,#788397);color:#1c273b}
+.i3{background:linear-gradient(145deg,#b89d6a,#665130)}.i4{background:linear-gradient(145deg,#9fb59a,#536d52)}
+.i5{background:linear-gradient(145deg,#a66e76,#5a2e35)}.i6{background:linear-gradient(145deg,#8094b5,#394b6b)}
+.i7{background:linear-gradient(145deg,#c1c8d5,#636b7a);color:#1e2838}.i8{background:linear-gradient(145deg,#343b4d,#121620)}
+.dock{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:21px;padding:10px;border-radius:23px;background:#eef4ff12;border:1px solid #fff2;backdrop-filter:blur(18px)}
+.dock .icon{width:53px;height:53px}
+.app{transform:translateY(105%);background:linear-gradient(#121929,#090d16);z-index:10;overflow:auto}
+.app.open{transform:translateY(0)}
+.app-head{display:flex;align-items:center;gap:12px;margin:3px 0 19px}
+.back{border:1px solid var(--line);background:#ffffff08;color:white;border-radius:50%;width:35px;height:35px;font-size:18px;cursor:pointer}
+.app-head h2{margin:0;font:700 23px Georgia,serif}
+.card{padding:15px;border:1px solid var(--line);border-radius:16px;background:#ffffff07;margin:10px 0}
+.card h3{font:11px monospace;letter-spacing:.11em;margin:0 0 8px;color:#a8bce2}
+.card p{font-size:12px;line-height:1.5;margin:0;color:#e7ebf2d1}
+.row{display:flex;gap:12px;align-items:center}
+.avatar{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#5b76aa,#29395d);font-weight:900}
+.row b{display:block}.row small{font-size:10px;opacity:.62}
+.msg{max-width:85%;padding:11px 13px;border-radius:15px;margin:9px 0;font-size:12px;line-height:1.4}
+.them{background:#ffffff10;border-bottom-left-radius:4px}.me{margin-left:auto;background:#31466f;border-bottom-right-radius:4px}
+.cite{font:11px/1.6 monospace;color:#cbd6e7}
+.good{color:#a9c6a5}.bad{color:#d88991}.warn{color:#d1b779}
+.paper{background:#edf1f7;color:#1d2739;border-radius:7px;padding:15px;transform:rotate(-.5deg)}
+.paper h3,.paper p{color:#1d2739}
+.secret{border-color:#9d4d5655;background:linear-gradient(135deg,#251116,#130a0d)}
+.sidebar{color:#edf1f7}
+.sidebar h1{font:700 38px/1.02 Georgia,serif;margin:0 0 12px}
+.sidebar p{font-size:14px;line-height:1.6;color:#d7deebb0}
+.tag{display:inline-block;padding:7px 10px;border:1px solid #9fb4d944;border-radius:999px;margin:4px 4px 0 0;font-size:10px}
+.hint{margin-top:24px;font-size:12px!important}
+@media(max-width:760px){.stage{display:block;padding:10px}.sidebar{display:none}.phone{height:94vh}}
+</style>
+</head>
+<body>
+<div class="stage">
+<main class="phone" aria-label="Damian Crosse phone mockup">
+<div class="screen">
+<div class="wallpaper"></div><div class="island"></div>
+<div class="status"><span id="statusTime">09:18</span><span>▮▮▮ ᯤ 88%</span></div>
+
+<section class="home">
+ <div class="hero">
+  <div class="date" id="date">Friday, July 10</div>
+  <div class="clock" id="clock">09:18</div>
+  <div class="subtitle">Claims without sources will be ignored.</div>
+ </div>
+
+ <div class="audit">
+  <div class="audit-head"><strong>RESEARCH QUEUE // 14 ITEMS</strong><span class="ok">86% VERIFIED</span></div>
+  <div class="metric"><span>Primary-source coverage</span><b>12 / 14</b><div class="bar"></div></div>
+ </div>
+
+ <div class="apps">
+  <button class="app-btn" data-open="library"><span class="icon i1">⌂</span><span>Library</span></button>
+  <button class="app-btn" data-open="citations"><span class="icon i2">§</span><span>Citations</span></button>
+  <button class="app-btn" data-open="claims"><span class="icon i4">✓</span><span>Claims</span></button>
+  <button class="app-btn" data-open="methods"><span class="icon i3">≡</span><span>Methods</span></button>
+  <button class="app-btn" data-open="pdfs"><span class="icon i6">▤</span><span>Annotated</span></button>
+  <button class="app-btn" data-open="quotes"><span class="icon i1">“</span><span>Quotes</span></button>
+  <button class="app-btn" data-open="peer"><span class="icon i7">⌕</span><span>Peer Review</span></button>
+  <button class="app-btn" data-open="archive"><span class="icon i8">▣</span><span>Restricted</span></button>
+ </div>
+
+ <div class="dock">
+  <button class="app-btn" data-open="messages"><span class="icon i1">●</span></button>
+  <button class="app-btn" data-open="calls"><span class="icon i6">⌕</span></button>
+  <button class="app-btn" data-open="notes"><span class="icon i3">✎</span></button>
+  <button class="app-btn" data-open="settings"><span class="icon i2">⚙</span></button>
+ </div>
+</section>
+
+<section class="app" id="messages">
+ <div class="app-head"><button class="back">‹</button><h2>Messages</h2></div>
+ <div class="card row"><div class="avatar">L</div><div><b>Ludo</b><small>social translation department</small></div></div>
+ <div class="msg me">Your argument is structurally unsound.</div>
+ <div class="msg them">You could say, “I think there may be a missing step.”</div>
+ <div class="msg me">That would imply uncertainty I do not possess.</div>
+ <div class="msg them">And this is why people think you’re mad at them.</div>
+
+ <div class="card row"><div class="avatar">A</div><div><b>Aria</b><small>tolerance pact · active</small></div></div>
+ <div class="msg them">Your source hierarchy is acceptable.</div>
+ <div class="msg me">Your compliment requires no embellishment.</div>
+ <div class="msg them">It was not a compliment.</div>
+ <div class="msg me">Precisely.</div>
+</section>
+
+<section class="app" id="library">
+ <div class="app-head"><button class="back">‹</button><h2>Library</h2></div>
+ <div class="card"><h3>ACTIVE RESEARCH</h3><p>Institutional corruption · witness reliability · source provenance · historical enrollment records · student council finance trails.</p></div>
+ <div class="card"><h3>RESERVED MATERIALS</h3><p>3 archival boxes · 2 legal journals · 1 library gift card Damian claims is a “practical resource,” not a gift.</p></div>
+</section>
+
+<section class="app" id="citations">
+ <div class="app-head"><button class="back">‹</button><h2>Citations</h2></div>
+ <div class="card"><div class="cite"><span class="good">[✓]</span> Primary source located
+<span class="good">[✓]</span> Publication date confirmed
+<span class="warn">[?]</span> Author conflict of interest
+<span class="bad">[X]</span> Reposted summary lacks provenance
+<span class="good">[✓]</span> Quote context preserved</div></div>
+ <div class="card"><h3>CITATION RULE</h3><p>A claim is not improved by confidence, repetition, popularity, or attractive formatting.</p></div>
+</section>
+
+<section class="app" id="claims">
+ <div class="app-head"><button class="back">‹</button><h2>Claims</h2></div>
+ <div class="card"><h3>CLAIM TYPE: CAUSAL</h3><p>Status: unsupported. Evidence demonstrates correlation only. Revise language or provide mechanism.</p></div>
+ <div class="card"><h3>CLAIM TYPE: CHARACTER</h3><p>“Everyone knows” is not evidence. Identify observers, timeframe, and possible bias.</p></div>
+</section>
+
+<section class="app" id="methods">
+ <div class="app-head"><button class="back">‹</button><h2>Methods</h2></div>
+ <div class="card"><h3>INDEX CARD 04</h3><p>Separate primary evidence, interpretation, inference, and speculation. Most bad arguments fail by pretending these are interchangeable.</p></div>
+ <div class="card"><h3>INDEX CARD 11</h3><p>When a result is unusually convenient, inspect the method before celebrating the conclusion.</p></div>
+</section>
+
+<section class="app" id="pdfs">
+ <div class="app-head"><button class="back">‹</button><h2>Annotated PDFs</h2></div>
+ <div class="card"><h3>RECENT</h3><p>School governance review — 68 comments<br>Witness memory paper — 41 comments<br>Legal ethics report — 103 comments, 17 marked “obvious”</p></div>
+</section>
+
+<section class="app" id="quotes">
+ <div class="app-head"><button class="back">‹</button><h2>Quote File</h2></div>
+ <div class="paper"><h3>CLAIM: “He said it as it is.”</h3><p>Category: social excuse.<br>Note: accuracy does not require cruelty. Cruelty does not become accuracy because it was delivered calmly.</p></div>
+</section>
+
+<section class="app" id="peer">
+ <div class="app-head"><button class="back">‹</button><h2>Peer Review</h2></div>
+ <div class="card"><h3>JUNO ENYO</h3><p>Method concern: narrative selected before evidence. High rhetorical competence; low trust in framing.</p></div>
+ <div class="card"><h3>TOKIKO</h3><p>Technical trust: high. Consistently pressure-tests assumptions without pretending uncertainty is weakness.</p></div>
+ <div class="card"><h3>HIKARI</h3><p>Conflict unresolved. Accusation may be emotionally motivated, but cannot be dismissed solely for that reason.</p></div>
+</section>
+
+<section class="app" id="archive">
+ <div class="app-head"><button class="back">‹</button><h2>Restricted</h2></div>
+ <div class="card secret"><h3>FAMILY PRACTICE</h3><p>Evidence falsification · bribery · witness manipulation · customer fraud. Methods contradict stated household values.</p></div>
+ <div class="card secret"><h3>ACADEMIC INCIDENT</h3><p>Stolen examination answers. Record suppressed. Outcome preserved through external intervention.</p></div>
+ <div class="card secret"><h3>CONTRADICTION</h3><p>Public principle: integrity through evidence.<br>Private history: winning under pressure by abandoning both.</p></div>
+</section>
+
+<section class="app" id="calls"><div class="app-head"><button class="back">‹</button><h2>Calls</h2></div><div class="card"><h3>RECENT</h3><p>Ludo · 32 min<br>Tokiko · 9 min<br>Father · declined</p></div></section>
+<section class="app" id="notes"><div class="app-head"><button class="back">‹</button><h2>Notes</h2></div><div class="card"><h3>TO DO</h3><p>Verify donor list · return archival pen · rewrite introduction with fewer “unnecessary concessions” · ask Ludo whether that phrase is insulting.</p></div></section>
+<section class="app" id="settings"><div class="app-head"><button class="back">‹</button><h2>Settings</h2></div><div class="card"><h3>PREFERENCES</h3><p>Autocorrect: disabled<br>Read receipts: on<br>Source links in previews: required<br>Family legal group: muted</p></div></section>
+</div>
+</main>
+
+<aside class="sidebar">
+ <h1>Damian Crosse</h1>
+ <p>A precise indigo research phone for the Ultimate Researcher: source audits, citation management, annotated documents, blunt peer reviews, and a sealed contradiction between public rigor and private compromise.</p>
+ <span class="tag">SOURCE FIRST</span><span class="tag">METHOD AUDIT</span><span class="tag">BLUNT MODE</span><span class="tag">RESTRICTED FILES</span>
+ <p class="hint">Tap the icons to inspect Damian’s evidence system, research workflow, messages, peer assessments, and concealed records.</p>
+</aside>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+function updateClock(){
+ const d=new Date(),t=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+ $('#clock').textContent=t;$('#statusTime').textContent=t;
+ $('#date').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric'});
+}
+updateClock();setInterval(updateClock,1000);
+$$('[data-open]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.open)?.classList.add('open'));
+$$('.back').forEach(b=>b.onclick=()=>b.closest('.app').classList.remove('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.app.open').forEach(a=>a.classList.remove('open'))});
+</script>
+
+<link rel="stylesheet" href="../shared/network-ui.css">
+<script>window.PHONE_IDENTITY = { id: "damian" };</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/phone-network.js"></script>
+</body>
+</html>

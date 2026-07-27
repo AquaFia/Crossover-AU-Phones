@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Juno Enyo — Phone</title>
+<style>
+:root{
+  --black:#09080f;--plum:#25142d;--pink:#ff70c8;--hot:#ff3f98;--violet:#9c6dff;
+  --cyan:#74e8ff;--cream:#fff5fb;--silver:#cfd4e9;--gold:#ffd36d;--line:rgba(255,255,255,.2)
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+ display:grid;place-items:center;overflow:hidden;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:white;
+ background:
+ radial-gradient(circle at 15% 20%,rgba(255,63,152,.22),transparent 28%),
+ radial-gradient(circle at 82% 76%,rgba(116,232,255,.15),transparent 30%),
+ linear-gradient(135deg,#08050d,#1a0b21 50%,#07050c)
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;opacity:.3;
+ background:
+ radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 2px),
+ radial-gradient(circle at 70% 65%,#ff9fd8 0 1px,transparent 2px);
+ background-size:48px 48px,73px 73px
+}
+.stage{display:grid;grid-template-columns:minmax(320px,390px) 280px;gap:44px;align-items:center;padding:24px}
+.phone{
+ width:min(390px,92vw);height:min(820px,92vh);position:relative;padding:11px;border-radius:52px;
+ background:linear-gradient(145deg,#f2d9ef,#765578 38%,#1c1524 60%,#d9d9ec);
+ box-shadow:0 38px 100px #000d,inset 0 0 0 1px #fff9,inset 0 0 18px #220d2a
+}
+.phone:after{content:"";position:absolute;inset:5px;border:1px solid #fff5;border-radius:47px;pointer-events:none}
+.screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:41px;background:#180d20}
+.wallpaper{
+ position:absolute;inset:0;
+ background:
+ linear-gradient(180deg,rgba(23,7,30,.05),rgba(11,3,17,.63)),
+ radial-gradient(circle at 70% 18%,rgba(255,205,238,.62),transparent 15%),
+ linear-gradient(145deg,#b8448e,#69397f 43%,#2c1744 70%,#150c24)
+}
+.wallpaper:before{
+ content:"";position:absolute;inset:0;opacity:.6;
+ background:
+ linear-gradient(35deg,transparent 46%,rgba(255,255,255,.22) 47% 48%,transparent 49%),
+ linear-gradient(120deg,transparent 45%,rgba(116,232,255,.16) 46% 47%,transparent 48%),
+ repeating-linear-gradient(0deg,transparent 0 34px,rgba(255,255,255,.035) 35px 36px);
+ background-size:145px 145px,190px 190px,auto
+}
+.wallpaper:after{
+ content:"JUNEBUG";position:absolute;left:-22px;bottom:180px;transform:rotate(-8deg);
+ font:900 68px/1 Arial,sans-serif;letter-spacing:-.08em;color:#fff1;
+ text-shadow:6px 0 #74e8ff12,-6px 0 #ff70c812
+}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:112px;height:28px;border-radius:18px;background:#07060a;z-index:30}
+.status{height:42px;padding:14px 21px 0;display:flex;justify-content:space-between;position:relative;z-index:20;font-size:12px;font-weight:800}
+.home,.app{position:absolute;inset:42px 0 0;padding:18px 21px 25px;transition:.4s cubic-bezier(.2,.8,.2,1)}
+.home{display:flex;flex-direction:column}
+.hero{margin-top:22px}
+.date{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#ffe4f4}
+.clock{font:800 62px/1 Arial,sans-serif;letter-spacing:-.07em;text-shadow:3px 0 #74e8ff66,-3px 0 #ff3f9866}
+.handle{font-size:13px;margin-top:5px}
+.live{
+ margin-top:20px;padding:16px;border-radius:25px;border:1px solid var(--line);
+ background:linear-gradient(135deg,rgba(255,241,250,.22),rgba(65,21,82,.38));
+ backdrop-filter:blur(15px);box-shadow:inset 0 1px #fff5,0 14px 30px #1c062955
+}
+.live-head{display:flex;justify-content:space-between;align-items:center}
+.live-head strong{font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+.live-pill{font-size:10px;background:#ff3f98;padding:4px 8px;border-radius:999px;box-shadow:0 0 14px #ff3f9888}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}
+.stat{padding:10px 6px;text-align:center;border-radius:14px;background:#ffffff12}
+.stat b{display:block;font-size:16px}.stat span{font-size:9px;opacity:.7}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 13px;margin-top:auto}
+.app-btn{border:0;background:none;color:white;padding:0;text-align:center;cursor:pointer}
+.icon{width:57px;height:57px;margin:auto;border-radius:18px;display:grid;place-items:center;font-size:24px;border:1px solid #fff5;box-shadow:inset 0 1px #fff7,0 8px 18px #16062088}
+.app-btn span{display:block;font-size:9px;margin-top:6px;text-shadow:0 1px 4px #210c2c}
+.i1{background:linear-gradient(145deg,#ff98dc,#c62882)}.i2{background:linear-gradient(145deg,#b997ff,#613eb4)}
+.i3{background:linear-gradient(145deg,#92efff,#2581a1)}.i4{background:linear-gradient(145deg,#ffd984,#c98030)}
+.i5{background:linear-gradient(145deg,#f2d9ef,#7f6787);color:#261630}.i6{background:linear-gradient(145deg,#ff8797,#a82f47)}
+.i7{background:linear-gradient(145deg,#d6d9e7,#626978);color:#202333}.i8{background:linear-gradient(145deg,#4b2a58,#1b1023)}
+.dock{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:21px;padding:10px;border-radius:25px;background:#fff2fb20;border:1px solid #fff4;backdrop-filter:blur(18px)}
+.dock .icon{width:53px;height:53px}
+.app{transform:translateY(105%);background:linear-gradient(#180d20,#0b0710);z-index:10;overflow:auto}
+.app.open{transform:translateY(0)}
+.app-head{display:flex;align-items:center;gap:12px;margin:3px 0 19px}
+.back{border:1px solid var(--line);background:#ffffff0b;color:white;border-radius:50%;width:35px;height:35px;font-size:18px;cursor:pointer}
+.app-head h2{margin:0;font:800 24px Arial,sans-serif;letter-spacing:-.04em}
+.card{padding:15px;border:1px solid var(--line);border-radius:19px;background:#ffffff0a;margin:10px 0}
+.card h3{font-size:11px;letter-spacing:.12em;margin:0 0 8px;color:#ff9fda}
+.card p{font-size:12px;line-height:1.5;margin:0;color:#f5eaf1d2}
+.row{display:flex;gap:12px;align-items:center}
+.avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#ff79ca,#7c4ddb);font-weight:900}
+.row b{display:block}.row small{font-size:10px;opacity:.62}
+.msg{max-width:85%;padding:11px 13px;border-radius:17px;margin:9px 0;font-size:12px;line-height:1.4}
+.them{background:#ffffff12;border-bottom-left-radius:5px}.me{margin-left:auto;background:#8d397a;border-bottom-right-radius:5px}
+.metric{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #ffffff10;font-size:12px}
+.metric:last-child{border-bottom:0}
+.good{color:#8af0d7}.warn{color:#ffd36d}.bad{color:#ff8fa1}
+.draft{background:#23132a;border-color:#ff70c844}
+.secret{border-color:#ff546d55;background:linear-gradient(135deg,#2a0d18,#150a12)}
+.sidebar{color:#f6e9f3}
+.sidebar h1{font:900 39px/1 Arial,sans-serif;margin:0 0 12px;letter-spacing:-.06em;text-shadow:3px 0 #74e8ff55,-3px 0 #ff3f9855}
+.sidebar p{font-size:14px;line-height:1.6;color:#e3cedeaf}
+.tag{display:inline-block;padding:7px 10px;border:1px solid #ff9fda44;border-radius:999px;margin:4px 4px 0 0;font-size:10px}
+.hint{margin-top:24px;font-size:12px!important}
+@media(max-width:760px){.stage{display:block;padding:10px}.sidebar{display:none}.phone{height:94vh}}
+</style>
+</head>
+<body>
+<div class="stage">
+<main class="phone" aria-label="Juno Enyo phone mockup">
+<div class="screen">
+<div class="wallpaper"></div><div class="island"></div>
+<div class="status"><span id="statusTime">8:08</span><span>▮▮▮ ᯤ 100%</span></div>
+
+<section class="home">
+ <div class="hero">
+  <div class="date" id="date">Friday, July 10</div>
+  <div class="clock" id="clock">8:08</div>
+  <div class="handle">@junebug · main character online</div>
+ </div>
+
+ <div class="live">
+  <div class="live-head"><strong>Audience Pulse</strong><span class="live-pill">LIVE</span></div>
+  <div class="stats">
+   <div class="stat"><b>2.8M</b><span>FOLLOWERS</span></div>
+   <div class="stat"><b>14.7%</b><span>ENGAGEMENT</span></div>
+   <div class="stat"><b>↑ 39%</b><span>MENTIONS</span></div>
+  </div>
+ </div>
+
+ <div class="apps">
+  <button class="app-btn" data-open="studio"><span class="icon i1">✦</span><span>Studio</span></button>
+  <button class="app-btn" data-open="analytics"><span class="icon i3">↗</span><span>Analytics</span></button>
+  <button class="app-btn" data-open="drafts"><span class="icon i2">≡</span><span>Drafts</span></button>
+  <button class="app-btn" data-open="trends"><span class="icon i4">★</span><span>Trends</span></button>
+  <button class="app-btn" data-open="network"><span class="icon i5">◎</span><span>Network</span></button>
+  <button class="app-btn" data-open="loyalty"><span class="icon i6">♥</span><span>Loyalty</span></button>
+  <button class="app-btn" data-open="slander"><span class="icon i1">☻</span><span>Risk Notes</span></button>
+  <button class="app-btn" data-open="backstage"><span class="icon i8">◆</span><span>Backstage</span></button>
+ </div>
+
+ <div class="dock">
+  <button class="app-btn" data-open="messages"><span class="icon i1">●</span></button>
+  <button class="app-btn" data-open="camera"><span class="icon i3">◉</span></button>
+  <button class="app-btn" data-open="shopping"><span class="icon i4">◇</span></button>
+  <button class="app-btn" data-open="settings"><span class="icon i7">⚙</span></button>
+ </div>
+</section>
+
+<section class="app" id="messages">
+ <div class="app-head"><button class="back">‹</button><h2>Messages</h2></div>
+ <div class="card row"><div class="avatar">A</div><div><b>Aria</b><small>pinned · priority contact</small></div></div>
+ <div class="msg me">You’re spiraling. I already rescheduled the public segment.</div>
+ <div class="msg them">I did not ask you to.</div>
+ <div class="msg me">You were going to pretend you were fine and make it everyone’s problem.</div>
+ <div class="msg them">That description is imprecise.</div>
+ <div class="msg me">But not false.</div>
+
+ <div class="card row"><div class="avatar">K</div><div><b>Kouji</b><small>fan-to-friend pipeline successful</small></div></div>
+ <div class="msg them">I made you a playlist for the campaign launch!!</div>
+ <div class="msg me">Cute. Put track 4 first and send it again.</div>
+ <div class="msg them">You listened already??</div>
+ <div class="msg me">Obviously. I just have standards.</div>
+</section>
+
+<section class="app" id="studio">
+ <div class="app-head"><button class="back">‹</button><h2>Studio</h2></div>
+ <div class="card"><h3>TODAY’S CONTENT STACK</h3><p>Retro haul · boba tier list · student event teaser · “accidental” hallway candid · controlled apology post, held in reserve.</p></div>
+ <div class="card"><h3>PUBLIC PERSONA</h3><p>Warm, effortless, slightly chaotic, always in control. Never let the audience see the edit timeline.</p></div>
+</section>
+
+<section class="app" id="analytics">
+ <div class="app-head"><button class="back">‹</button><h2>Analytics</h2></div>
+ <div class="card">
+  <div class="metric"><span>Positive sentiment</span><b class="good">72%</b></div>
+  <div class="metric"><span>Curiosity spike</span><b class="good">+41%</b></div>
+  <div class="metric"><span>Criticism cluster</span><b class="warn">manageable</b></div>
+  <div class="metric"><span>Narrative drift</span><b class="bad">6.2%</b></div>
+ </div>
+ <div class="card"><h3>RECOMMENDATION</h3><p>Post a candid friendship photo within 90 minutes. Shift attention from accountability to intimacy.</p></div>
+</section>
+
+<section class="app" id="drafts">
+ <div class="app-head"><button class="back">‹</button><h2>Drafts</h2></div>
+ <div class="card draft"><h3>NOT POSTED</h3><p>“I’m hearing everyone’s concerns, and I think this is an important moment for us to talk about context, intention, and the way narratives spread online…”</p></div>
+ <div class="card draft"><h3>BACKUP CAPTION</h3><p>“Some people mistake access for closeness. Anyway, new hair clips.”</p></div>
+</section>
+
+<section class="app" id="trends">
+ <div class="app-head"><button class="back">‹</button><h2>Trends</h2></div>
+ <div class="card"><h3>RISING</h3><p>Chrome accessories · neon nostalgia · boba rankings · public “soft launches” of friendships · ironic school spirit.</p></div>
+ <div class="card"><h3>OPPORTUNITY</h3><p>Turn tomorrow’s fundraiser into a spectacle before the committee notices the budget is becoming content.</p></div>
+</section>
+
+<section class="app" id="network">
+ <div class="app-head"><button class="back">‹</button><h2>Network</h2></div>
+ <div class="card"><h3>INNER CIRCLE</h3><p>Aria — anchor / strategy / genuine attachment<br>Kouji — loyal amplifier / emotionally useful<br>Student Council — access / legitimacy / event pipeline</p></div>
+ <div class="card"><h3>OUTER RING</h3><p>Creators, donors, school accounts, gossip relays, fashion contacts, and people who believe they are closer to Juno than they are.</p></div>
+</section>
+
+<section class="app" id="loyalty">
+ <div class="app-head"><button class="back">‹</button><h2>Loyalty</h2></div>
+ <div class="card"><h3>ARIA MATSUDA</h3><p>Stability value: critical<br>Approval sensitivity: high<br>Manipulation tolerance: low<br>Do not push past withdrawal threshold.</p></div>
+ <div class="card"><h3>KOUJI YOSHINARI</h3><p>Reliability: high<br>Admiration: excessive<br>Risk awareness: insufficient<br>Will probably say yes.</p></div>
+</section>
+
+<section class="app" id="slander">
+ <div class="app-head"><button class="back">‹</button><h2>Risk Notes</h2></div>
+ <div class="card"><h3>JACE</h3><p>Risk but make it funny. Never draft within audible range.</p></div>
+ <div class="card"><h3>ARIA</h3><p>Do not publish. She will identify the manipulation structure before the comments load.</p></div>
+ <div class="card"><h3>KOUJI</h3><p>Too easy. Use sparingly or the audience starts feeling protective.</p></div>
+</section>
+
+<section class="app" id="backstage">
+ <div class="app-head"><button class="back">‹</button><h2>Backstage</h2></div>
+ <div class="card secret"><h3>MASTER NARRATIVE</h3><p>Spectacle value: high<br>Peer distress response: entertaining<br>Evidence framing: prepared<br>Contingency persona: sympathetic victim</p></div>
+ <div class="card secret"><h3>UNKNOWN CONTACT</h3><p>“Boredom is a solvable problem. Give them something unforgettable.”</p></div>
+ <div class="card secret"><h3>CONTROL NOTE</h3><p>Never lie when selective truth will do more damage.</p></div>
+</section>
+
+<section class="app" id="camera"><div class="app-head"><button class="back">‹</button><h2>Camera</h2></div><div class="card"><h3>DEFAULTS</h3><p>Beauty filter: subtle<br>Metadata removal: enabled<br>Alternate crop versions: 6<br>“Candid” timer: 3 seconds</p></div></section>
+<section class="app" id="shopping"><div class="app-head"><button class="back">‹</button><h2>Shopping</h2></div><div class="card"><h3>WATCHLIST</h3><p>Limited-edition chrome clips · translucent platform heels · pink flip phone charm · boba collaboration merch.</p></div></section>
+<section class="app" id="settings"><div class="app-head"><button class="back">‹</button><h2>Settings</h2></div><div class="card"><h3>PRIVACY</h3><p>Read receipts: selective<br>Location sharing: curated<br>School account access: supervised<br>Hidden album: biometric + secondary passcode</p></div></section>
+</div>
+</main>
+
+<aside class="sidebar">
+ <h1>JUNO ENYO</h1>
+ <p>A glossy Y2K influencer phone with two layers: Junebug’s polished public feed on top, and a colder system of audience analytics, narrative control, loyalty assessment, and concealed operations beneath it.</p>
+ <span class="tag">JUNEBUG</span><span class="tag">AUDIENCE CONTROL</span><span class="tag">Y2K GLAM</span><span class="tag">BACKSTAGE LOCKED</span>
+ <p class="hint">Tap the icons to move between her public persona, social network, drafts, loyalty files, and hidden mastermind layer.</p>
+</aside>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+function updateClock(){
+ const d=new Date(),t=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+ $('#clock').textContent=t;$('#statusTime').textContent=t;
+ $('#date').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric'});
+}
+updateClock();setInterval(updateClock,1000);
+$$('[data-open]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.open)?.classList.add('open'));
+$$('.back').forEach(b=>b.onclick=()=>b.closest('.app').classList.remove('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.app.open').forEach(a=>a.classList.remove('open'))});
+</script>
+
+<link rel="stylesheet" href="../shared/network-ui.css">
+<script>window.PHONE_IDENTITY = { id: "juno" };</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/phone-network.js"></script>
+</body>
+</html>

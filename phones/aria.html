@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Aria Matsuda — Phone</title>
+<style>
+:root{
+  --bg:#05070b; --panel:#0c1119; --panel2:#111824; --ice:#b9d7e8;
+  --blue:#78a9c7; --violet:#8c6db4; --amber:#d3a15c; --red:#bd5b68;
+  --muted:#798797; --line:rgba(181,211,229,.17); --glass:rgba(14,22,32,.78);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:grid;place-items:center;overflow:hidden;color:#e8f0f4;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
+  background:
+    radial-gradient(circle at 18% 18%,rgba(104,83,142,.16),transparent 27%),
+    radial-gradient(circle at 82% 78%,rgba(78,128,156,.13),transparent 30%),
+    linear-gradient(135deg,#020307,#090d14 50%,#030407);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;
+  background:
+   repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.035) 4px),
+   linear-gradient(90deg,transparent 49.8%,rgba(120,169,199,.13) 50%,transparent 50.2%);
+}
+.stage{display:grid;grid-template-columns:minmax(320px,390px) 280px;gap:44px;align-items:center;padding:24px}
+.phone{
+ width:min(390px,92vw);height:min(820px,92vh);position:relative;padding:11px;
+ border-radius:47px;
+ background:linear-gradient(145deg,#27303a,#07090d 45%,#313946);
+ box-shadow:0 40px 100px #000,inset 0 0 0 1px #ffffff22,inset 0 0 22px #000;
+}
+.phone:before{
+ content:"";position:absolute;left:-3px;top:170px;width:4px;height:95px;border-radius:4px;background:#424b56;
+ box-shadow:0 125px #424b56;
+}
+.screen{position:relative;height:100%;overflow:hidden;border-radius:37px;background:#05080d}
+.screen:after{
+ content:"";position:absolute;inset:0;pointer-events:none;z-index:50;
+ background:linear-gradient(112deg,rgba(255,255,255,.035),transparent 20% 72%,rgba(255,255,255,.02));
+}
+.wallpaper,.view{position:absolute;inset:0}
+.wallpaper{
+ background:
+   linear-gradient(180deg,rgba(2,5,9,.08),rgba(2,5,9,.75)),
+   radial-gradient(circle at 50% 33%,rgba(118,159,184,.16),transparent 18%),
+   linear-gradient(145deg,#141821,#090d14 55%,#05070b);
+}
+.wallpaper:before{
+ content:"";position:absolute;inset:0;opacity:.5;
+ background:
+ linear-gradient(90deg,transparent 8%,#78a9c722 8.2%,transparent 8.4%),
+ linear-gradient(90deg,transparent 70%,#8c6db422 70.2%,transparent 70.4%),
+ repeating-linear-gradient(0deg,transparent 0 44px,#b9d7e80b 45px 46px),
+ repeating-linear-gradient(90deg,transparent 0 44px,#b9d7e80b 45px 46px);
+}
+.wallpaper:after{
+ content:"ERiSU // NODE 03";position:absolute;right:-56px;top:310px;transform:rotate(90deg);
+ color:#8fb7ca33;font:11px/1 monospace;letter-spacing:.3em;
+}
+.status{height:42px;padding:14px 21px 0;display:flex;justify-content:space-between;position:relative;z-index:20;font-size:12px;font-weight:700}
+.island{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:112px;height:29px;border-radius:18px;background:#010203;z-index:30;border:1px solid #20262c}
+.home,.app{position:absolute;inset:42px 0 0;padding:17px 21px 25px;transition:.38s cubic-bezier(.2,.8,.2,1)}
+.home{display:flex;flex-direction:column}
+.topline{margin-top:27px;display:flex;justify-content:space-between;align-items:flex-start}
+.date{font:11px/1.3 monospace;letter-spacing:.17em;text-transform:uppercase;color:#96a8b4}
+.clock{font:300 65px/1 monospace;letter-spacing:-.08em;text-shadow:0 0 22px #78a9c744}
+.state{text-align:right;font:10px/1.5 monospace;color:#89a5b5}
+.state b{color:#9fc5d9}
+.system{
+ margin-top:22px;padding:16px;border:1px solid var(--line);border-radius:18px;
+ background:linear-gradient(135deg,rgba(8,13,20,.85),rgba(34,48,64,.45));
+ backdrop-filter:blur(16px);box-shadow:inset 0 1px #ffffff10,0 13px 35px #0007;
+}
+.system-head{display:flex;justify-content:space-between;align-items:center}
+.system-head strong{font:11px monospace;letter-spacing:.13em}
+.verified{font:10px monospace;color:#b7dba8;border:1px solid #7aa66b55;background:#7aa66b18;padding:4px 7px;border-radius:3px}
+.scan{height:59px;margin-top:13px;position:relative;overflow:hidden;border:1px solid #ffffff0e;background:#020509}
+.scan:before{
+ content:"";position:absolute;inset:0;
+ background:repeating-linear-gradient(90deg,transparent 0 11px,#78a9c71c 12px 13px);
+}
+.scan:after{
+ content:"";position:absolute;left:0;right:0;top:26px;height:1px;background:#b9d7e8;
+ box-shadow:40px -10px 0 #8c6db4,90px 8px 0 #78a9c7,145px -17px 0 #bd5b68,210px 13px 0 #78a9c7,280px -4px 0 #b9d7e8;
+ animation:sweep 3.4s linear infinite;
+}
+@keyframes sweep{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 13px;margin-top:auto}
+.app-btn{border:0;background:none;color:white;padding:0;text-align:center;cursor:pointer}
+.icon{
+ width:56px;height:56px;margin:auto;border-radius:14px;display:grid;place-items:center;font:22px monospace;
+ border:1px solid #ffffff19;box-shadow:inset 0 1px #fff2,0 8px 17px #0008;
+}
+.app-btn span{display:block;font-size:9px;margin-top:6px;color:#dbe5ea}
+.i1{background:linear-gradient(145deg,#233746,#0d161e)}.i2{background:linear-gradient(145deg,#3d3150,#17111f)}
+.i3{background:linear-gradient(145deg,#4f4430,#1e1810)}.i4{background:linear-gradient(145deg,#41262d,#1b0d11)}
+.i5{background:linear-gradient(145deg,#34424b,#10171b)}.i6{background:linear-gradient(145deg,#45505b,#171d24)}
+.i7{background:linear-gradient(145deg,#313a45,#0d1117)}.i8{background:linear-gradient(145deg,#51445b,#1a1520)}
+.dock{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:21px;padding:10px;border-radius:21px;background:#d9edf10c;border:1px solid #ffffff10;backdrop-filter:blur(18px)}
+.dock .icon{width:53px;height:53px}
+.app{transform:translateY(105%);background:linear-gradient(#090d13,#05070b);z-index:10;overflow:auto}
+.app.open{transform:translateY(0)}
+.app-head{display:flex;align-items:center;gap:12px;margin:3px 0 19px}
+.back{border:1px solid var(--line);background:#ffffff08;color:white;border-radius:9px;width:34px;height:34px;font-size:18px;cursor:pointer}
+.app-head h2{margin:0;font:500 22px monospace;letter-spacing:-.04em}
+.card{padding:14px;border:1px solid var(--line);border-radius:13px;background:#ffffff07;margin:10px 0}
+.card h3{font:11px monospace;letter-spacing:.12em;margin:0 0 8px;color:#a7c7d9}
+.card p{font-size:12px;line-height:1.5;margin:0;color:#d9e2e7c9}
+.row{display:flex;gap:11px;align-items:center}
+.avatar{width:43px;height:43px;border-radius:10px;display:grid;place-items:center;background:#263846;font:700 15px monospace}
+.row b{display:block;font-size:13px}.row small{opacity:.58;font-size:10px}
+.msg{max-width:85%;padding:10px 12px;border-radius:12px;margin:8px 0;font-size:12px;line-height:1.45}
+.them{background:#ffffff0c;border-bottom-left-radius:3px}.me{margin-left:auto;background:#263c4b;border-bottom-right-radius:3px}
+.log{font:11px/1.65 monospace;white-space:pre-line;color:#aebcc6}
+.truth{color:#b7dba8}.false{color:#e18791}.unknown{color:#d6b579}
+.alert{border-color:#bd5b6855}.alert h3{color:#e18791}
+.journal{background:#191612;border-color:#77654a55}
+.journal p{font-family:Georgia,serif;color:#d8cfbd}
+.sidebar{color:#dce7ed}
+.sidebar h1{font:600 37px/1.05 monospace;margin:0 0 12px;letter-spacing:-.08em}
+.sidebar p{font-size:14px;line-height:1.6;color:#bcc8cfaa}
+.tag{display:inline-block;padding:7px 10px;border:1px solid #8fb7ca33;border-radius:4px;margin:4px 4px 0 0;font:10px monospace}
+.hint{margin-top:24px;font-size:12px!important}
+@media(max-width:760px){.stage{display:block;padding:10px}.sidebar{display:none}.phone{height:94vh}}
+</style>
+</head>
+<body>
+<div class="stage">
+<main class="phone" aria-label="Aria Matsuda phone mockup">
+<div class="screen">
+<div class="wallpaper"></div><div class="island"></div>
+<div class="status"><span id="statusTime">02:14</span><span>▮▮ ᯤ 61%</span></div>
+
+<section class="home">
+  <div class="topline">
+    <div><div class="date" id="date">Friday // July 10</div><div class="clock" id="clock">02:14</div></div>
+    <div class="state">SLEEP: <b>FAILED</b><br>NETWORK: SECURE<br>ERiSU: ACTIVE</div>
+  </div>
+
+  <div class="system">
+    <div class="system-head"><strong>ERiSU.EXE // SAFETY LAYER</strong><span class="verified">✓ VERIFIED</span></div>
+    <div class="scan"></div>
+    <div class="log" style="margin-top:10px">03 nodes online · 0 external breaches
+1 contradiction pending review</div>
+  </div>
+
+  <div class="apps">
+    <button class="app-btn" data-open="erisu"><span class="icon i1">E</span><span>ERiSU</span></button>
+    <button class="app-btn" data-open="logs"><span class="icon i5">≡</span><span>Logs</span></button>
+    <button class="app-btn" data-open="committee"><span class="icon i2">⌘</span><span>Committee</span></button>
+    <button class="app-btn" data-open="robotics"><span class="icon i6">⚙</span><span>Robotics</span></button>
+    <button class="app-btn" data-open="journal"><span class="icon i3">?</span><span>Journal</span></button>
+    <button class="app-btn" data-open="evidence"><span class="icon i1">✓</span><span>Evidence</span></button>
+    <button class="app-btn" data-open="health"><span class="icon i4">!</span><span>Health</span></button>
+    <button class="app-btn" data-open="vault"><span class="icon i8">▣</span><span>Severance</span></button>
+  </div>
+
+  <div class="dock">
+    <button class="app-btn" data-open="messages"><span class="icon i1">•••</span></button>
+    <button class="app-btn" data-open="calls"><span class="icon i5">⌕</span></button>
+    <button class="app-btn" data-open="camera"><span class="icon i6">◉</span></button>
+    <button class="app-btn" data-open="settings"><span class="icon i7">⚙</span></button>
+  </div>
+</section>
+
+<section class="app" id="messages">
+ <div class="app-head"><button class="back">‹</button><h2>MESSAGES</h2></div>
+ <div class="card row"><div class="avatar">T</div><div><b>Tokiko Crowley</b><small>security audit · encrypted</small></div></div>
+ <div class="msg them">I found three paths into the assistant layer.</div>
+ <div class="msg me">Document them. Do not exploit path two until I isolate the school network.</div>
+ <div class="msg them">You asked me to break it.</div>
+ <div class="msg me">I asked you to prove it could be broken. Those are not identical instructions.</div>
+ <div class="card row"><div class="avatar">Y</div><div><b>Yasuke</b><small>older twin brother</small></div></div>
+ <div class="msg them">Have you slept?</div>
+ <div class="msg me">Irrelevant to the current failure state.</div>
+ <div class="msg them">That means no.</div>
+</section>
+
+<section class="app" id="erisu">
+ <div class="app-head"><button class="back">‹</button><h2>ERiSU.EXE</h2></div>
+ <div class="card"><h3>SYSTEM STATUS</h3><p>Safety assistant online. Behavioral anomaly filters active. External access denied by default.</p></div>
+ <div class="card"><h3>CURRENT OBSERVATION</h3><p>Aria has ignored three rest prompts. Recommendation: enforce workstation lockout for 20 minutes.</p></div>
+ <div class="card alert"><h3>OVERRIDE LOGGED</h3><p>Rest lockout bypassed by administrator A. Matsuda.</p></div>
+</section>
+
+<section class="app" id="logs">
+ <div class="app-head"><button class="back">‹</button><h2>FORENSIC LOGS</h2></div>
+ <div class="card"><div class="log"><span class="truth">✓ 01:42</span> Access token valid
+<span class="truth">✓ 01:44</span> Firmware delta expected
+<span class="unknown">? 01:47</span> Camera frame absent
+<span class="false">X 01:48</span> User claim conflicts with actuator cycle
+<span class="truth">✓ 01:51</span> Chain of custody restored</div></div>
+ <div class="card"><h3>PENDING CONTRADICTION</h3><p>Statement: “No one entered Lab 4.” Door motor reports a complete open-close cycle at 01:47.</p></div>
+</section>
+
+<section class="app" id="committee">
+ <div class="app-head"><button class="back">‹</button><h2>COMMITTEE</h2></div>
+ <div class="card"><h3>TALENT ACQUISITION // ACTIVE</h3><p>2 dossiers verified · 1 applicant deferred · 4 references require independent confirmation.</p></div>
+ <div class="card"><h3>COMMAND ROLES</h3><p>Containment: Aria<br>Network review: Tokiko<br>Witness control: pending assignment<br>Morale management: regrettably necessary</p></div>
+</section>
+
+<section class="app" id="robotics">
+ <div class="app-head"><button class="back">‹</button><h2>ROBOTICS</h2></div>
+ <div class="card"><h3>PROTOTYPE 07</h3><p>Actuator response stable. Add redundant physical cutoff. Software permissions are not a containment strategy.</p></div>
+ <div class="card alert"><h3>ARCHIVED PROJECT // HALTRM</h3><p>Status: reportedly destroyed.<br>Local note: “Reportedly” is not proof.</p></div>
+</section>
+
+<section class="app" id="journal">
+ <div class="app-head"><button class="back">‹</button><h2>JOURNAL</h2></div>
+ <div class="card journal"><h3>ENTRY 441</h3><p>✓ Tokiko completed the test.<br>? Her reason for staying after payment.<br>X I do not require reassurance.<br><br>Memory discontinuity between 03:11 and 03:26. No assumptions until logs are reconstructed.</p></div>
+ <div class="card journal"><h3>ENTRY 442</h3><p>Being remembered is not the same as being known. The distinction remains operationally inconvenient.</p></div>
+</section>
+
+<section class="app" id="evidence">
+ <div class="app-head"><button class="back">‹</button><h2>EVIDENCE</h2></div>
+ <div class="card"><h3>NOTATION STANDARD</h3><p><span class="truth">✓ Verified:</span> supported by independent evidence.<br><span class="false">X False:</span> contradicted by evidence.<br><span class="unknown">? Unproven:</span> plausible, insufficient support.</p></div>
+ <div class="card"><h3>DISCLOSURE RULE</h3><p>Share only what is necessary to preserve chain of custody, prevent contamination, and maintain decision control.</p></div>
+</section>
+
+<section class="app" id="health">
+ <div class="app-head"><button class="back">‹</button><h2>HEALTH</h2></div>
+ <div class="card alert"><h3>SLEEP DEFICIT</h3><p>Last full sleep cycle: 41 hours ago. Migraine risk elevated. Cognitive gap probability increasing.</p></div>
+ <div class="card"><h3>RECOVERY PROTOCOL</h3><p>Dark room. Reduce device brightness. Hydrate. Record memory discontinuities without filling gaps through inference.</p></div>
+</section>
+
+<section class="app" id="vault">
+ <div class="app-head"><button class="back">‹</button><h2>SEVERANCE</h2></div>
+ <div class="card alert"><h3>CONTAINMENT AUTHORITY</h3><p>Isolate node · revoke credentials · freeze information flow · preserve local logs.</p></div>
+ <div class="card"><h3>COMPARTMENT 19-N</h3><p>Mother recognition records.<br>Access restricted during sleep-deprivation events.</p></div>
+ <div class="card"><h3>COMPARTMENT H</h3><p>HALTRM incident reconstruction.<br>Partial memory. Full telemetry unavailable.</p></div>
+</section>
+
+<section class="app" id="calls"><div class="app-head"><button class="back">‹</button><h2>CALLS</h2></div><div class="card"><h3>RECENT</h3><p>Yasuke · missed<br>Tokiko · 22 min<br>Steering Committee · blocked</p></div></section>
+<section class="app" id="camera"><div class="app-head"><button class="back">‹</button><h2>CAMERA</h2></div><div class="card"><h3>DOCUMENT MODE</h3><p>Timestamp overlay enabled. Hash generated on capture. Automatic cloud sync disabled.</p></div></section>
+<section class="app" id="settings"><div class="app-head"><button class="back">‹</button><h2>SETTINGS</h2></div><div class="card"><h3>SECURITY</h3><p>Biometric unlock: disabled<br>Passphrase rotation: 48h<br>Remote wipe: armed<br>Hope-themed notifications: blocked</p></div></section>
+</div>
+</main>
+
+<aside class="sidebar">
+ <h1>ARIA<br>MATSUDA</h1>
+ <p>A near-dark command terminal disguised as a phone: robotics diagnostics, verified logs, committee control, ERiSU oversight, and memories separated into locked compartments.</p>
+ <span class="tag">AUDIT-FIRST</span><span class="tag">ERiSU ACTIVE</span><span class="tag">ZERO TRUST</span><span class="tag">INSOMNIA MODE</span>
+ <p class="hint">Tap the icons to inspect each system. Press Escape to return home.</p>
+</aside>
+</div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+function updateClock(){
+ const d=new Date(),t=d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',hour12:false});
+ $('#clock').textContent=t;$('#statusTime').textContent=t;
+ $('#date').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric'}).replace(',',' //');
+}
+updateClock();setInterval(updateClock,1000);
+$$('[data-open]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.open)?.classList.add('open'));
+$$('.back').forEach(b=>b.onclick=()=>b.closest('.app').classList.remove('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.app.open').forEach(a=>a.classList.remove('open'))});
+</script>
+
+<link rel="stylesheet" href="../shared/network-ui.css">
+<script>window.PHONE_IDENTITY = { id: "aria" };</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/phone-network.js"></script>
+</body>
+</html>

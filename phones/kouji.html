@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Kouji Renran Yoshinari — Phone</title>
+<style>
+:root{
+  --navy:#102440; --blue:#2f69a2; --sky:#83bce7; --lime:#d8ed89;
+  --cream:#fff8d8; --mint:#bce8c0; --gold:#f1c75b; --coral:#ef8f76;
+  --ink:#142136; --line:rgba(255,255,255,.24);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+ display:grid;place-items:center;overflow:hidden;
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
+ color:white;
+ background:
+  radial-gradient(circle at 17% 20%,rgba(131,188,231,.25),transparent 28%),
+  radial-gradient(circle at 83% 78%,rgba(216,237,137,.18),transparent 28%),
+  linear-gradient(135deg,#0b1930,#163252 55%,#0a1729);
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;
+ background:
+  radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 2px),
+  radial-gradient(circle at 75% 55%,#fff 0 1px,transparent 2px);
+ background-size:55px 55px,75px 75px;
+}
+.stage{display:grid;grid-template-columns:minmax(320px,390px) 275px;gap:42px;align-items:center;padding:24px}
+.phone{
+ width:min(390px,92vw);height:min(820px,92vh);position:relative;padding:11px;border-radius:51px;
+ background:linear-gradient(145deg,#d7e3eb,#63758b 45%,#e1ebef);
+ box-shadow:0 40px 100px #000b,inset 0 0 0 1px #fff9,inset 0 0 18px #20344a;
+}
+.phone:before{content:"";position:absolute;right:-3px;top:180px;width:4px;height:85px;border-radius:4px;background:#8394a6}
+.screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:40px;background:#1c416b}
+.wallpaper{
+ position:absolute;inset:0;
+ background:
+  linear-gradient(180deg,rgba(15,45,78,.1),rgba(11,28,52,.52)),
+  radial-gradient(circle at 72% 20%,rgba(255,245,167,.55),transparent 16%),
+  linear-gradient(145deg,#5ea0d1,#2a659a 45%,#173c68);
+}
+.wallpaper:before{
+ content:"";position:absolute;inset:0;opacity:.65;
+ background:
+  linear-gradient(23deg,transparent 47%,rgba(255,255,255,.25) 48% 49%,transparent 50%),
+  linear-gradient(118deg,transparent 47%,rgba(220,239,155,.2) 48% 49%,transparent 50%),
+  radial-gradient(ellipse at 18% 64%,transparent 0 10%,rgba(255,255,255,.22) 11% 12%,transparent 13%);
+ background-size:170px 170px,220px 220px,230px 230px;
+}
+.wallpaper:after{
+ content:"";position:absolute;left:-30px;right:-30px;bottom:120px;height:150px;opacity:.5;
+ background:
+  linear-gradient(155deg,transparent 0 33%,#d6ed8f 34% 36%,transparent 37%),
+  linear-gradient(25deg,transparent 0 48%,#fff3c4 49% 51%,transparent 52%);
+ transform:rotate(-5deg);
+}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:110px;height:28px;border-radius:18px;background:#07101b;z-index:30}
+.status{height:42px;padding:14px 21px 0;display:flex;justify-content:space-between;position:relative;z-index:20;font-size:12px;font-weight:800}
+.home,.app{position:absolute;inset:42px 0 0;padding:18px 21px 25px;transition:.4s cubic-bezier(.2,.8,.2,1)}
+.home{display:flex;flex-direction:column}
+.hero{margin-top:25px}
+.date{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#eef7dd}
+.clock{font:700 64px/1 Georgia,serif;letter-spacing:-.06em;text-shadow:0 4px 18px #0a234d88}
+.subtitle{margin-top:6px;font-size:13px}
+.luck{
+ margin-top:21px;padding:15px;border-radius:23px;border:1px solid var(--line);
+ background:linear-gradient(135deg,rgba(255,250,215,.22),rgba(44,91,135,.3));
+ backdrop-filter:blur(15px);box-shadow:inset 0 1px #fff5,0 14px 28px #08224355;
+}
+.luck-head{display:flex;justify-content:space-between;align-items:center}
+.luck-head strong{font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+.odds{font-size:10px;background:#fff3bf;color:#294160;padding:4px 7px;border-radius:999px}
+.route{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;margin-top:13px}
+.pin{width:34px;height:34px;border-radius:12px;background:#dff0a7;color:#294160;display:grid;place-items:center;font-weight:900;transform:rotate(-5deg)}
+.route b{display:block;font-size:14px}.route span{font-size:11px;opacity:.75}.route em{font-style:normal;font-size:12px}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 13px;margin-top:auto}
+.app-btn{border:0;background:none;color:white;padding:0;text-align:center;cursor:pointer}
+.icon{width:57px;height:57px;margin:auto;border-radius:19px;display:grid;place-items:center;font-size:24px;box-shadow:inset 0 1px #fff7,0 8px 15px #0b234b66;border:1px solid #fff5}
+.app-btn span{display:block;font-size:9px;margin-top:6px;text-shadow:0 1px 4px #173557}
+.i1{background:linear-gradient(145deg,#edf6ad,#8ab56e);color:#264767}
+.i2{background:linear-gradient(145deg,#9ed0f0,#3671a3)}
+.i3{background:linear-gradient(145deg,#ffd983,#cf8d3f)}
+.i4{background:linear-gradient(145deg,#f8b098,#c7615d)}
+.i5{background:linear-gradient(145deg,#c4e9d4,#4f9b8a)}
+.i6{background:linear-gradient(145deg,#d2c4f2,#725aa6)}
+.i7{background:linear-gradient(145deg,#dce6ef,#778ba1);color:#233d5d}
+.i8{background:linear-gradient(145deg,#fff1be,#c7a84c);color:#30445d}
+.dock{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:21px;padding:10px;border-radius:25px;background:#f4fbef25;border:1px solid #fff4;backdrop-filter:blur(18px)}
+.dock .icon{width:53px;height:53px}
+.app{transform:translateY(105%);background:linear-gradient(#f8fbef,#deebdf);color:var(--ink);z-index:10;overflow:auto}
+.app.open{transform:translateY(0)}
+.app-head{display:flex;align-items:center;gap:12px;margin:3px 0 19px}
+.back{border:1px solid #365b7f33;background:white;color:#25517e;border-radius:50%;width:35px;height:35px;font-size:18px;cursor:pointer}
+.app-head h2{margin:0;font:700 24px Georgia,serif;color:#163858}
+.card{padding:15px;border:1px solid #274e7430;border-radius:19px;background:#fff9;margin:10px 0;box-shadow:0 7px 16px #234d7130}
+.card h3{font-size:12px;letter-spacing:.1em;margin:0 0 7px;color:#3972a1}
+.card p{font-size:13px;line-height:1.48;margin:0;color:#28425b}
+.row{display:flex;gap:12px;align-items:center}
+.avatar{width:44px;height:44px;border-radius:16px;display:grid;place-items:center;background:#b8dc8f;color:#274565;font-weight:900}
+.row b{display:block}.row small{font-size:10px;opacity:.65}
+.msg{max-width:85%;padding:11px 13px;border-radius:17px;margin:9px 0;font-size:13px;line-height:1.4}
+.them{background:#cbd9e4;border-bottom-left-radius:5px}.me{margin-left:auto;background:#90bee3;border-bottom-right-radius:5px}
+.ticket{background:#fff7cf;border:2px dashed #d0aa4b;transform:rotate(-1deg)}
+.alert{border-color:#d66d6844;background:#fff1ee}
+.mapline{padding:10px;border-left:4px solid #78a95f;margin:8px 0;background:#edf5df;border-radius:0 10px 10px 0;font-size:12px}
+.sidebar{color:#e8f3f7}
+.sidebar h1{font:700 36px/1.02 Georgia,serif;margin:0 0 12px}
+.sidebar p{font-size:14px;line-height:1.6;color:#d2e1e9b2}
+.tag{display:inline-block;padding:7px 10px;border:1px solid #dff0a744;border-radius:999px;margin:4px 4px 0 0;font-size:10px}
+.hint{margin-top:24px;font-size:12px!important}
+@media(max-width:760px){.stage{display:block;padding:10px}.sidebar{display:none}.phone{height:94vh}}
+</style>
+</head>
+<body>
+<div class="stage">
+<main class="phone" aria-label="Kouji Yoshinari phone mockup">
+<div class="screen">
+<div class="wallpaper"></div><div class="island"></div>
+<div class="status"><span id="statusTime">11:23</span><span>▮▮▮ ᯤ 92%</span></div>
+
+<section class="home">
+  <div class="hero">
+    <div class="date" id="date">Friday, July 10</div>
+    <div class="clock" id="clock">11:23</div>
+    <div class="subtitle">No meetings detected nearby. Excellent.</div>
+  </div>
+
+  <div class="luck">
+    <div class="luck-head"><strong>Today’s Improbable Exit</strong><span class="odds">1 IN 8,192</span></div>
+    <div class="route"><span class="pin">↗</span><div><b>Library skylight route</b><span>Open · unguarded · suspiciously convenient</span></div><em>3 min</em></div>
+  </div>
+
+  <div class="apps">
+    <button class="app-btn" data-open="escapes"><span class="icon i1">↗</span><span>Exit Maps</span></button>
+    <button class="app-btn" data-open="travel"><span class="icon i2">⌖</span><span>Travel</span></button>
+    <button class="app-btn" data-open="fundraising"><span class="icon i3">¥</span><span>Fundraising</span></button>
+    <button class="app-btn" data-open="luck"><span class="icon i8">★</span><span>Lucky Log</span></button>
+    <button class="app-btn" data-open="locks"><span class="icon i5">⌁</span><span>Locks</span></button>
+    <button class="app-btn" data-open="challenges"><span class="icon i6">∞</span><span>Challenges</span></button>
+    <button class="app-btn" data-open="photos"><span class="icon i2">▧</span><span>Photos</span></button>
+    <button class="app-btn" data-open="panic"><span class="icon i4">!</span><span>Open Air</span></button>
+  </div>
+
+  <div class="dock">
+    <button class="app-btn" data-open="messages"><span class="icon i5">●</span></button>
+    <button class="app-btn" data-open="calls"><span class="icon i2">⌕</span></button>
+    <button class="app-btn" data-open="wallet"><span class="icon i3">▤</span></button>
+    <button class="app-btn" data-open="settings"><span class="icon i7">⚙</span></button>
+  </div>
+</section>
+
+<section class="app" id="messages">
+ <div class="app-head"><button class="back">‹</button><h2>Messages</h2></div>
+ <div class="card row"><div class="avatar">T</div><div><b>Tyler</b><small>survival equipment authority</small></div></div>
+ <div class="msg me">I found a tiny carabiner shaped like a heart. This is survival equipment now.</div>
+ <div class="msg them">That is not how equipment classification works.</div>
+ <div class="msg me">You kept it though.</div>
+ <div class="msg them">It has a functional clasp.</div>
+
+ <div class="card row"><div class="avatar">A</div><div><b>Aria</b><small>committee leader · 6 unread</small></div></div>
+ <div class="msg them">You missed the mandatory meeting.</div>
+ <div class="msg me">I attended spiritually.</div>
+ <div class="msg them">The attendance sheet does not support that claim.</div>
+ <div class="msg me">The attendance sheet is limited by its physical location.</div>
+</section>
+
+<section class="app" id="escapes">
+ <div class="app-head"><button class="back">‹</button><h2>Exit Maps</h2></div>
+ <div class="card"><h3>SAFE HAVENS PEAK // WEST WING</h3><div class="mapline">Primary: stairwell B — observed</div><div class="mapline">Secondary: maintenance hatch — narrow</div><div class="mapline">Kouji route: window ledge → awning → courtyard</div></div>
+ <div class="card"><h3>RULE</h3><p>Never enter a room without counting doors, windows, vents, ceiling access, and people likely to complain about the first four.</p></div>
+</section>
+
+<section class="app" id="travel">
+ <div class="app-head"><button class="back">‹</button><h2>Travel</h2></div>
+ <div class="card ticket"><h3>NEXT ADVENTURE</h3><p>Night ferry · open deck seating · no enclosed car transfer required.</p></div>
+ <div class="card"><h3>MAP PINS</h3><p>Old castles · puzzle museums · cliff paths · one suspicious door that only opens if pushed, then pulled.</p></div>
+</section>
+
+<section class="app" id="fundraising">
+ <div class="app-head"><button class="back">‹</button><h2>Fundraising</h2></div>
+ <div class="card"><h3>STUDENT COUNCIL TOTAL</h3><p>¥2,481,300 raised · donor seating optimized · ceremonial ribbon misplaced but recovered from a ventilation shaft.</p></div>
+ <div class="card"><h3>UPCOMING EVENT</h3><p>Escape-room gala. Donors believe this is thematic. It is also operationally convenient.</p></div>
+</section>
+
+<section class="app" id="luck">
+ <div class="app-head"><button class="back">‹</button><h2>Lucky Log</h2></div>
+ <div class="card"><h3>TODAY</h3><p>Elevator jammed after Kouji chose stairs.<br>Lost key landed inside an open backpack.<br>Rain started exactly after reaching shelter.</p></div>
+ <div class="card"><h3>NOTE</h3><p>“Lucky” is not a substitute for skilled. The survival rate is merely supporting evidence.</p></div>
+</section>
+
+<section class="app" id="locks">
+ <div class="app-head"><button class="back">‹</button><h2>Locks</h2></div>
+ <div class="card"><h3>PRACTICE SET</h3><p>Pin tumbler: 14 sec<br>Handcuff shim: 9 sec<br>Decorative diary lock: insultingly easy</p></div>
+ <div class="card"><h3>POCKET CHECK</h3><p>Bobby pins · thin shim · braided cord · one completely innocent paperclip.</p></div>
+</section>
+
+<section class="app" id="challenges">
+ <div class="app-head"><button class="back">‹</button><h2>Challenges</h2></div>
+ <div class="card"><h3>ACTIVE</h3><p>Blindfold knot release · underwater restraint timing · “leave Aria’s meeting without her noticing.”</p></div>
+ <div class="card alert"><h3>REJECTED</h3><p>Anything involving locked cars. Adventure requires an exit.</p></div>
+</section>
+
+<section class="app" id="photos">
+ <div class="app-head"><button class="back">‹</button><h2>Photos</h2></div>
+ <div class="card"><h3>RECENTS</h3><p>Travel maps · hidden doors · swan-shaped pastry · Tyler holding the heart carabiner · 37 pictures of Juno saved in a folder labeled “reference.”</p></div>
+</section>
+
+<section class="app" id="panic">
+ <div class="app-head"><button class="back">‹</button><h2>Open Air</h2></div>
+ <div class="card alert"><h3>TRANSPORT PANIC PROTOCOL</h3><p>Open the nearest exit. Move to fresh air. Do not restrain. Confirm the route out before discussing anything else.</p></div>
+ <div class="card"><h3>GROUNDING</h3><p>Count visible exits. Name five blue objects. Keep both feet free. Call Niana or Tyler.</p></div>
+</section>
+
+<section class="app" id="calls"><div class="app-head"><button class="back">‹</button><h2>Calls</h2></div><div class="card"><h3>RECENT</h3><p>Niana · 28 min<br>Tyler · 11 min<br>Student Council Office · ignored</p></div></section>
+<section class="app" id="wallet"><div class="app-head"><button class="back">‹</button><h2>Wallet</h2></div><div class="card"><h3>PASSES</h3><p>Rail card · ferry pass · museum membership · three event donor badges under slightly different names.</p></div></section>
+<section class="app" id="settings"><div class="app-head"><button class="back">‹</button><h2>Settings</h2></div><div class="card"><h3>PREFERENCES</h3><p>Location sharing: close friends<br>Meeting alerts: muted<br>Enclosed transport warnings: enabled<br>Window-route suggestions: always</p></div></section>
+</div>
+</main>
+
+<aside class="sidebar">
+ <h1>Kouji Renran Yoshinari</h1>
+ <p>A cheerful travel-and-escape phone for the Ultimate Escape Artist, Lucky Student, and fundraising committee troublemaker—bright, social, improbable, and always aware of the nearest way out.</p>
+ <span class="tag">EXIT FIRST</span><span class="tag">LUCKY OUTLIER</span><span class="tag">TRAVEL MODE</span><span class="tag">MEETING EVASION</span>
+ <p class="hint">Tap the icons to explore his routes, messages, fundraising records, lucky incidents, and emergency open-air protocol.</p>
+</aside>
+</div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+function updateClock(){
+ const d=new Date(),t=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+ $('#clock').textContent=t;$('#statusTime').textContent=t;
+ $('#date').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric'});
+}
+updateClock();setInterval(updateClock,1000);
+$$('[data-open]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.open)?.classList.add('open'));
+$$('.back').forEach(b=>b.onclick=()=>b.closest('.app').classList.remove('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.app.open').forEach(a=>a.classList.remove('open'))});
+</script>
+
+<link rel="stylesheet" href="../shared/network-ui.css">
+<script>window.PHONE_IDENTITY = { id: "kouji" };</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/phone-network.js"></script>
+</body>
+</html>

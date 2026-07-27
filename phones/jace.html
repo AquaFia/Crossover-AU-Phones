@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Jacey “Jace” Cosmo — Phone</title>
+<style>
+:root{
+  --ink:#070812;--deep:#111226;--purple:#6d55c7;--violet:#a56cff;--blue:#3a7bd5;
+  --cyan:#69e3ff;--red:#ff5d6f;--cream:#f2efff;--gold:#ffd27a;--line:rgba(228,220,255,.18)
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:grid;place-items:center;overflow:hidden;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:white;
+  background:
+    radial-gradient(circle at 15% 18%,rgba(109,85,199,.25),transparent 28%),
+    radial-gradient(circle at 84% 80%,rgba(58,123,213,.18),transparent 30%),
+    linear-gradient(135deg,#04050c,#101226 55%,#05060d);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;
+  background:
+    radial-gradient(circle at 20% 25%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 70% 68%,#69e3ff 0 1px,transparent 2px);
+  background-size:50px 50px,76px 76px;
+}
+.stage{display:grid;grid-template-columns:minmax(320px,390px) 285px;gap:44px;align-items:center;padding:24px}
+.phone{
+  width:min(390px,92vw);height:min(820px,92vh);position:relative;padding:11px;border-radius:51px;
+  background:linear-gradient(145deg,#b8b5d7,#5d557d 38%,#171629 62%,#918cad);
+  box-shadow:0 40px 100px #000d,inset 0 0 0 1px #fff7,inset 0 0 20px #05050c;
+}
+.phone:before{content:"";position:absolute;right:-3px;top:176px;width:4px;height:92px;border-radius:4px;background:#6f6988;box-shadow:0 120px #6f6988}
+.screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:40px;background:#0d0f20}
+.wallpaper{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(8,9,20,.03),rgba(6,7,16,.72)),
+    radial-gradient(circle at 70% 17%,rgba(105,227,255,.28),transparent 15%),
+    linear-gradient(145deg,#4f3f93,#2d397d 42%,#17234a 68%,#090b1a);
+}
+.wallpaper:before{
+  content:"";position:absolute;inset:0;opacity:.5;
+  background:
+    radial-gradient(circle at 50% 40%,transparent 0 19%,rgba(165,108,255,.18) 19.5% 20%,transparent 20.5%),
+    radial-gradient(circle at 50% 40%,transparent 0 31%,rgba(105,227,255,.12) 31.5% 32%,transparent 32.5%),
+    linear-gradient(32deg,transparent 48%,rgba(255,255,255,.15) 49% 50%,transparent 51%);
+  background-size:260px 260px,330px 330px,175px 175px;
+}
+.wallpaper:after{
+  content:"JACE//COSMO";position:absolute;right:-84px;bottom:210px;transform:rotate(90deg);
+  font:900 42px/1 Arial,sans-serif;letter-spacing:-.06em;color:#fff1;
+  text-shadow:6px 0 #69e3ff16,-6px 0 #ff5d6f16;
+}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:112px;height:28px;border-radius:18px;background:#020308;z-index:30}
+.status{height:42px;padding:14px 21px 0;display:flex;justify-content:space-between;position:relative;z-index:20;font-size:12px;font-weight:800}
+.home,.app{position:absolute;inset:42px 0 0;padding:18px 21px 25px;transition:.4s cubic-bezier(.2,.8,.2,1)}
+.home{display:flex;flex-direction:column}
+.hero{margin-top:22px}
+.date{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#e3dcfa}
+.clock{font:800 61px/1 Arial,sans-serif;letter-spacing:-.07em;text-shadow:3px 0 #69e3ff55,-3px 0 #ff5d6f55}
+.subtitle{font-size:12px;margin-top:6px;color:#ece7fa}
+.decrypt{
+  margin-top:21px;padding:16px;border-radius:24px;border:1px solid var(--line);
+  background:linear-gradient(135deg,rgba(242,239,255,.16),rgba(17,18,38,.53));
+  backdrop-filter:blur(16px);box-shadow:inset 0 1px #fff4,0 14px 30px #02030a88;
+}
+.decrypt-head{display:flex;justify-content:space-between;align-items:center}
+.decrypt-head strong{font:11px monospace;letter-spacing:.12em}
+.breach{font:10px monospace;padding:4px 7px;border-radius:4px;color:#ffd5dc;border:1px solid #ff5d6f55;background:#ff5d6f16}
+.task{display:grid;grid-template-columns:52px 1fr auto;gap:11px;align-items:center;margin-top:13px}
+.wheel{width:52px;height:52px;border:1px solid #e7dfff;border-radius:50%;display:grid;place-items:center;font-size:20px;box-shadow:inset 0 0 0 6px #ffffff0b}
+.task b{display:block;font-size:14px}.task span{font-size:10px;opacity:.72}.task em{font-style:normal;font-size:12px}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 13px;margin-top:auto}
+.app-btn{border:0;background:none;color:white;padding:0;text-align:center;cursor:pointer}
+.icon{width:57px;height:57px;margin:auto;border-radius:18px;display:grid;place-items:center;font:22px monospace;border:1px solid #fff4;box-shadow:inset 0 1px #fff6,0 8px 18px #03040b88}
+.app-btn span{display:block;font-size:9px;margin-top:6px;text-shadow:0 1px 4px #0a0c1e}
+.i1{background:linear-gradient(145deg,#b18cff,#6550be)}.i2{background:linear-gradient(145deg,#7eeaff,#2c89b5)}
+.i3{background:linear-gradient(145deg,#ff8b99,#ad394a)}.i4{background:linear-gradient(145deg,#f0d389,#a37b34);color:#29324b}
+.i5{background:linear-gradient(145deg,#e4e0ef,#73758c);color:#202338}.i6{background:linear-gradient(145deg,#8aa7e2,#405c9a)}
+.i7{background:linear-gradient(145deg,#b48bd4,#6f477f)}.i8{background:linear-gradient(145deg,#3d3a58,#151424)}
+.dock{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:21px;padding:10px;border-radius:25px;background:#f5efff17;border:1px solid #fff3;backdrop-filter:blur(18px)}
+.dock .icon{width:53px;height:53px}
+.app{transform:translateY(105%);background:linear-gradient(#111328,#080914);z-index:10;overflow:auto}
+.app.open{transform:translateY(0)}
+.app-head{display:flex;align-items:center;gap:12px;margin:3px 0 19px}
+.back{border:1px solid var(--line);background:#ffffff09;color:white;border-radius:50%;width:35px;height:35px;font-size:18px;cursor:pointer}
+.app-head h2{margin:0;font:800 23px Arial,sans-serif;letter-spacing:-.04em}
+.card{padding:15px;border:1px solid var(--line);border-radius:17px;background:#ffffff08;margin:10px 0}
+.card h3{font:11px monospace;letter-spacing:.11em;margin:0 0 8px;color:#c7adff}
+.card p{font-size:12px;line-height:1.5;margin:0;color:#eeeaf7d2}
+.row{display:flex;gap:12px;align-items:center}
+.avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#8c6be2,#3d79b8);font-weight:900}
+.row b{display:block}.row small{font-size:10px;opacity:.62}
+.msg{max-width:85%;padding:11px 13px;border-radius:17px;margin:9px 0;font-size:12px;line-height:1.4}
+.them{background:#ffffff10;border-bottom-left-radius:5px}.me{margin-left:auto;background:#55469d;border-bottom-right-radius:5px}
+.code{font:11px/1.65 monospace;color:#d6d1e6;white-space:pre-line}
+.good{color:#96e4d1}.warn{color:#f1d489}.bad{color:#ff8b99}
+.redthread{border-color:#ff5d6f55;background:linear-gradient(135deg,#2a0d17,#140910)}
+.secret{border-color:#a56cff55;background:linear-gradient(135deg,#1d1734,#0d0b18)}
+.alias{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ffffff10;font-size:12px}
+.alias:last-child{border-bottom:0}
+.spark{animation:glitch 2.8s infinite}
+@keyframes glitch{0%,92%,100%{transform:none}94%{transform:translateX(2px)}96%{transform:translateX(-2px)}98%{transform:none}}
+.sidebar{color:#f0ebfa}
+.sidebar h1{font:900 38px/1 Arial,sans-serif;margin:0 0 12px;letter-spacing:-.06em;text-shadow:3px 0 #69e3ff44,-3px 0 #ff5d6f44}
+.sidebar p{font-size:14px;line-height:1.6;color:#dcd3ecb2}
+.tag{display:inline-block;padding:7px 10px;border:1px solid #c7adff44;border-radius:999px;margin:4px 4px 0 0;font-size:10px}
+.hint{margin-top:24px;font-size:12px!important}
+@media(max-width:760px){.stage{display:block;padding:10px}.sidebar{display:none}.phone{height:94vh}}
+</style>
+</head>
+<body>
+<div class="stage">
+<main class="phone" aria-label="Jacey Cosmo phone mockup">
+<div class="screen">
+<div class="wallpaper"></div><div class="island"></div>
+<div class="status"><span id="statusTime">01:27</span><span>▮▮▮ ᯤ 97%</span></div>
+
+<section class="home">
+ <div class="hero">
+  <div class="date" id="date">Friday, July 10</div>
+  <div class="clock spark" id="clock">01:27</div>
+  <div class="subtitle">I only opened it because it looked suspicious :D</div>
+ </div>
+
+ <div class="decrypt">
+  <div class="decrypt-head"><strong>ACTIVE PUZZLE // SCHOOL NODE 17</strong><span class="breach">UNAUTHORIZED-ish</span></div>
+  <div class="task"><span class="wheel">⌘</span><div><b>Custom transposition chain</b><span>Pattern reused · key family identified</span></div><em>88%</em></div>
+ </div>
+
+ <div class="apps">
+  <button class="app-btn" data-open="cipher"><span class="icon i1">⌘</span><span>Cipher Lab</span></button>
+  <button class="app-btn" data-open="stars"><span class="icon i2">✦</span><span>Star Map</span></button>
+  <button class="app-btn" data-open="aliases"><span class="icon i7">ID</span><span>Aliases</span></button>
+  <button class="app-btn" data-open="trail"><span class="icon i3">⤷</span><span>Red String</span></button>
+  <button class="app-btn" data-open="provenance"><span class="icon i4">✓</span><span>Verify</span></button>
+  <button class="app-btn" data-open="lowtech"><span class="icon i5">▤</span><span>Paper Codes</span></button>
+  <button class="app-btn" data-open="breaches"><span class="icon i6">!</span><span>Vulnerabilities</span></button>
+  <button class="app-btn" data-open="identity"><span class="icon i8">◆</span><span>Identity</span></button>
+ </div>
+
+ <div class="dock">
+  <button class="app-btn" data-open="messages"><span class="icon i2">●</span></button>
+  <button class="app-btn" data-open="calls"><span class="icon i6">⌕</span></button>
+  <button class="app-btn" data-open="notes"><span class="icon i4">✎</span></button>
+  <button class="app-btn" data-open="settings"><span class="icon i5">⚙</span></button>
+ </div>
+</section>
+
+<section class="app" id="messages">
+ <div class="app-head"><button class="back">‹</button><h2>Messages</h2></div>
+ <div class="card row"><div class="avatar">T</div><div><b>Tyler</b><small>“please stop touching the network”</small></div></div>
+ <div class="msg me">Good news! I found seventeen vulnerabilities in the school network!</div>
+ <div class="msg them">That is not good news.</div>
+ <div class="msg me">It is if I tell them before someone evil finds eighteen.</div>
+ <div class="msg them">You were not authorized to look.</div>
+ <div class="msg me">The vulnerability looked lonely.</div>
+
+ <div class="card row"><div class="avatar">K</div><div><b>Kasei</b><small>cryptology chaos counterpart</small></div></div>
+ <div class="msg them">Your key schedule is clever but emotionally reckless.</div>
+ <div class="msg me">Keys have emotions now??</div>
+ <div class="msg them">Only yours.</div>
+</section>
+
+<section class="app" id="cipher">
+ <div class="app-head"><button class="back">‹</button><h2>Cipher Lab</h2></div>
+ <div class="card"><h3>ACTIVE BREAK</h3><div class="code">FAMILY: transposition + additive layer
+LIKELY ORDER: Polybius → COSMO → IOT
+WEAKNESS: repeated procedural assumption
+STATUS: <span class="good">solvable</span></div></div>
+ <div class="card"><h3>JACE RULE</h3><p>If a cipher only works because nobody is supposed to ask questions, it is not secure. It is just socially protected.</p></div>
+</section>
+
+<section class="app" id="stars">
+ <div class="app-head"><button class="back">‹</button><h2>Star Map</h2></div>
+ <div class="card"><h3>SIRIUS INDEX</h3><p>Sirius · Vega · Deneb · repeated coordinates hidden in family documents.</p></div>
+ <div class="card"><h3>CONSTELLATION NOTE</h3><p>Three stars align with a substitution grid. Probably coincidence. Therefore definitely worth checking.</p></div>
+</section>
+
+<section class="app" id="aliases">
+ <div class="app-head"><button class="back">‹</button><h2>Alias Records</h2></div>
+ <div class="card">
+  <div class="alias"><span>Jacey Sirius Cosmo</span><b class="good">ACTIVE</b></div>
+  <div class="alias"><span>Naoya Takahoshi</span><b class="warn">MATCH</b></div>
+  <div class="alias"><span>Mao Fushimi</span><b class="bad">RESTRICTED</b></div>
+  <div class="alias"><span>Kasei Hoshiakari</span><b class="warn">CONFLICT</b></div>
+ </div>
+ <div class="card"><h3>ERROR</h3><p>Multiple records claim to be the same person. At least one identity is fabricated. Possibly all of them.</p></div>
+</section>
+
+<section class="app" id="trail">
+ <div class="app-head"><button class="back">‹</button><h2>Red String</h2></div>
+ <div class="card redthread"><h3>OPEN THREAD</h3><p>Police station arrival → missing records → Cosmo family key → Fenrir references → memory wipe → academy transfer.</p></div>
+ <div class="card redthread"><h3>QUESTION</h3><p>Why does “Jacey Cosmo” appear nowhere before age twelve if that is supposedly her real name?</p></div>
+</section>
+
+<section class="app" id="provenance">
+ <div class="app-head"><button class="back">‹</button><h2>Verify</h2></div>
+ <div class="card"><div class="code"><span class="good">✓</span> Handwriting pattern consistent
+<span class="warn">?</span> Timestamp added later
+<span class="bad">X</span> School seal duplicated
+<span class="warn">?</span> Family signature too perfect
+<span class="good">✓</span> Tampering confirmed</div></div>
+ <div class="card"><h3>REMINDER</h3><p>Finding the truth and broadcasting the truth are not the same permission. Apparently.</p></div>
+</section>
+
+<section class="app" id="lowtech">
+ <div class="app-head"><button class="back">‹</button><h2>Paper Codes</h2></div>
+ <div class="card"><h3>SAFE CHANNEL</h3><p>One-time pad fragments hidden in ribbon bead order. Silver beads represent Morse spacing. Grey ribbon means message not yet authenticated.</p></div>
+ <div class="card"><h3>DEAD DROP</h3><p>Library book 7B · page fold direction indicates sender · star sticker means “do not use network.”</p></div>
+</section>
+
+<section class="app" id="breaches">
+ <div class="app-head"><button class="back">‹</button><h2>Vulnerabilities</h2></div>
+ <div class="card"><h3>SCHOOL NETWORK</h3><p>17 confirmed weaknesses · 4 procedural · 6 credential-related · 7 caused by adults believing “students won’t try that.”</p></div>
+ <div class="card"><h3>ETHICS NOTE</h3><p>Restricted systems are not puzzle boxes. Restricted systems are not puzzle boxes. Restricted systems are—okay, but some of them are shaped exactly like puzzle boxes.</p></div>
+</section>
+
+<section class="app" id="identity">
+ <div class="app-head"><button class="back">‹</button><h2>Identity</h2></div>
+ <div class="card secret"><h3>BURRIED FILE</h3><p>“Jacey Cosmo” does not exist in early records. Naoya Takahashi disappeared. Mao Fushimi is linked to Fenrir. Memory-wipe references appear in family documents.</p></div>
+ <div class="card secret"><h3>CAMERA FLAG</h3><p>Discomfort response predates known memory. Possible association with surveillance, identity capture, or prior operational training.</p></div>
+ <div class="card secret"><h3>UNSENT NOTE</h3><p>I keep solving everyone else’s secrets because mine feels like the only puzzle that is allowed to solve me back.</p></div>
+</section>
+
+<section class="app" id="calls"><div class="app-head"><button class="back">‹</button><h2>Calls</h2></div><div class="card"><h3>RECENT</h3><p>Tyler · 12 min<br>Kasei · 34 min<br>Unknown “family office” · declined</p></div></section>
+<section class="app" id="notes"><div class="app-head"><button class="back">‹</button><h2>Notes</h2></div><div class="card"><h3>TO DO</h3><p>Decode ribbon bead order · ask why school cameras follow hallway movement · return tablet charger · stop calling restricted archives “bonus levels.”</p></div></section>
+<section class="app" id="settings"><div class="app-head"><button class="back">‹</button><h2>Settings</h2></div><div class="card"><h3>PRIVACY</h3><p>Camera permissions: denied<br>Cloud identity sync: off<br>Alias auto-fill: disabled<br>Boundary reminders: aggressively enabled</p></div></section>
+</div>
+</main>
+
+<aside class="sidebar">
+ <h1>JACEY “JACE” COSMO</h1>
+ <p>A dark sci-fi cryptologist phone with star maps, cipher wheels, chromatic glitches, alias records, red-string investigations, paper codes, and the cheerful energy of a data breach that genuinely believes it is helping.</p>
+ <span class="tag">ULTIMATE CRYPTOLOGIST</span><span class="tag">ALIAS GLITCH</span><span class="tag">STAR MAP</span><span class="tag">WALKING DATA BREACH</span>
+ <p class="hint">Tap the icons to explore Jace’s cipher tools, messages, identity contradictions, vulnerability reports, and buried records.</p>
+</aside>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+function updateClock(){
+ const d=new Date(),t=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+ $('#clock').textContent=t;$('#statusTime').textContent=t;
+ $('#date').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric'});
+}
+updateClock();setInterval(updateClock,1000);
+$$('[data-open]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.open)?.classList.add('open'));
+$$('.back').forEach(b=>b.onclick=()=>b.closest('.app').classList.remove('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.app.open').forEach(a=>a.classList.remove('open'))});
+</script>
+
+<link rel="stylesheet" href="../shared/network-ui.css">
+<script>window.PHONE_IDENTITY = { id: "jace" };</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/phone-network.js"></script>
+</body>
+</html>

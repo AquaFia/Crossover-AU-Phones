@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Tyler “Ty” Ezra — Phone</title>
+<style>
+:root{
+  --ink:#0d1711; --deep:#14261b; --pine:#214b2e; --leaf:#4f8a55;
+  --lime:#a5d56a; --cream:#edf0df; --paper:#dce2c8; --rust:#b86c42;
+  --glass:rgba(236,244,224,.13); --line:rgba(235,244,224,.2);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:grid;place-items:center;overflow:hidden;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
+  color:var(--cream);
+  background:
+    radial-gradient(circle at 15% 20%,rgba(91,140,83,.22),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(184,108,66,.13),transparent 28%),
+    linear-gradient(135deg,#07100b,#17251a 55%,#0a120d);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.stage{display:grid;grid-template-columns:minmax(320px,390px) 260px;gap:42px;align-items:center;padding:24px}
+.phone{
+  width:min(390px,92vw);height:min(820px,92vh);position:relative;padding:12px;
+  border-radius:52px;background:linear-gradient(145deg,#314638,#101914 50%,#3c4b3c);
+  box-shadow:0 36px 90px #000b,inset 0 0 0 1px #ffffff1d,inset 0 0 16px #000b;
+}
+.phone:after{content:"";position:absolute;inset:5px;border:1px solid #8fac7a33;border-radius:47px;pointer-events:none}
+.screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:41px;background:#17251a}
+.wallpaper,.view{position:absolute;inset:0}
+.wallpaper{
+ background:
+   linear-gradient(180deg,rgba(7,17,10,.22),rgba(7,17,10,.7)),
+   radial-gradient(circle at 72% 22%,rgba(178,216,108,.35),transparent 16%),
+   linear-gradient(150deg,transparent 0 48%,rgba(194,226,152,.12) 49% 50%,transparent 51%),
+   linear-gradient(30deg,#284b32,#152b20 55%,#0e1812);
+}
+.wallpaper:before{
+ content:"";position:absolute;inset:0;opacity:.42;
+ background:
+ radial-gradient(ellipse at 20% 40%,transparent 0 13%,#8fc26b 14% 15%,transparent 16%),
+ radial-gradient(ellipse at 50% 60%,transparent 0 17%,#628c50 18% 19%,transparent 20%),
+ repeating-linear-gradient(110deg,transparent 0 26px,#b7d99512 27px 29px,transparent 30px 54px);
+ transform:scale(1.2) rotate(-4deg);
+}
+.status{height:42px;padding:15px 22px 0;display:flex;justify-content:space-between;position:relative;z-index:20;font-size:13px;font-weight:700}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:108px;height:28px;border-radius:18px;background:#020403;z-index:30}
+.home,.app{position:absolute;inset:42px 0 0;padding:18px 22px 26px;transition:.42s cubic-bezier(.2,.8,.2,1)}
+.home{display:flex;flex-direction:column}
+.hero{margin-top:24px}
+.date{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#dcefc0bb}
+.clock{font:700 66px/1 Georgia,serif;letter-spacing:-.05em;text-shadow:0 3px 16px #0009}
+.weather{display:flex;align-items:center;gap:9px;margin-top:7px;color:#dfe9cc}
+.weather b{font-size:13px}.weather small{opacity:.7}
+.widget{
+ margin-top:22px;padding:17px;border:1px solid var(--line);border-radius:24px;
+ background:linear-gradient(135deg,rgba(10,25,16,.58),rgba(220,240,188,.1));
+ backdrop-filter:blur(14px);box-shadow:inset 0 1px #ffffff18,0 10px 30px #0004
+}
+.widget-head{display:flex;justify-content:space-between;align-items:center}
+.widget-head strong{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.badge{font-size:10px;background:#a5d56a22;border:1px solid #a5d56a55;padding:4px 7px;border-radius:10px;color:#cce9a6}
+.route{display:grid;grid-template-columns:28px 1fr auto;gap:9px;align-items:center;margin-top:13px}
+.compass{width:27px;height:27px;border:1px solid #c6e39a88;border-radius:50%;display:grid;place-items:center;font-size:12px;transform:rotate(-15deg)}
+.route b{display:block;font-size:14px}.route span{font-size:11px;opacity:.66}.route em{font-style:normal;font-size:12px}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 14px;margin-top:auto}
+.app-btn{border:0;background:none;color:white;padding:0;text-align:center;cursor:pointer}
+.icon{width:57px;height:57px;margin:auto;border-radius:18px;display:grid;place-items:center;font-size:25px;box-shadow:inset 0 1px #fff4,0 7px 14px #0005}
+.app-btn span{display:block;font-size:10px;margin-top:6px;text-shadow:0 1px 4px #000}
+.i1{background:linear-gradient(145deg,#658f49,#284f31)}.i2{background:linear-gradient(145deg,#d6e2c0,#65715d);color:#19311f}
+.i3{background:linear-gradient(145deg,#ce8b57,#734226)}.i4{background:linear-gradient(145deg,#7aa48c,#31574c)}
+.i5{background:linear-gradient(145deg,#8e9f70,#3b4b32)}.i6{background:linear-gradient(145deg,#9ab6a4,#435f50)}
+.i7{background:linear-gradient(145deg,#678462,#243c2d)}.i8{background:linear-gradient(145deg,#ddd6aa,#77704b);color:#283123}
+.dock{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:22px;padding:11px;border-radius:25px;background:#eff5dc1b;backdrop-filter:blur(18px)}
+.dock .icon{width:54px;height:54px}
+.app{transform:translateY(105%);background:linear-gradient(#122118,#0d1711);z-index:10;overflow:auto}
+.app.open{transform:translateY(0)}
+.app-head{display:flex;align-items:center;gap:12px;margin:4px 0 20px}
+.back{border:1px solid var(--line);background:#ffffff0c;color:white;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer}
+.app-head h2{margin:0;font:600 24px Georgia,serif}
+.card{padding:15px;border:1px solid var(--line);border-radius:19px;background:#ffffff0b;margin:11px 0}
+.card h3{font-size:13px;margin:0 0 7px;color:#cce6a5}
+.card p{font-size:13px;line-height:1.45;margin:0;color:#e4ead8d6}
+.contact{display:flex;gap:12px;align-items:center}
+.avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#5b774c;font-weight:800}
+.contact b{display:block}.contact small{opacity:.6}
+.msg{max-width:84%;padding:11px 13px;border-radius:16px;margin:9px 0;font-size:13px;line-height:1.35}
+.them{background:#ffffff12;border-bottom-left-radius:5px}.me{margin-left:auto;background:#527c48;border-bottom-right-radius:5px}
+.note{font-family:Georgia,serif;background:#e4e0bd;color:#29301f;border-radius:8px;padding:16px;transform:rotate(-.5deg);box-shadow:0 8px 18px #0005}
+.note h3{margin-top:0}.note li{margin:7px 0;font-size:13px}
+.sos{border-color:#b86c4288}.sos h3{color:#df9c72}
+.sidebar{color:#dce7cf}
+.sidebar h1{font:700 38px/1.05 Georgia,serif;margin:0 0 12px}
+.sidebar p{font-size:14px;line-height:1.6;color:#c9d4c0b5}
+.tag{display:inline-block;padding:7px 10px;border:1px solid #aac78844;border-radius:999px;margin:4px 4px 0 0;font-size:11px}
+.hint{margin-top:24px;font-size:12px!important}
+@media(max-width:760px){.stage{display:block;padding:10px}.sidebar{display:none}.phone{height:94vh}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <main class="phone" aria-label="Tyler Ezra phone mockup">
+    <div class="screen">
+      <div class="wallpaper"></div>
+      <div class="island"></div>
+      <div class="status"><span id="statusTime">9:41</span><span>▮▮▮ ᯤ 83%</span></div>
+      <section class="home">
+        <div class="hero">
+          <div class="date" id="date">Friday, July 10</div>
+          <div class="clock" id="clock">9:41</div>
+          <div class="weather"><b>18° · Overcast</b><small>Good trail visibility</small></div>
+        </div>
+        <div class="widget">
+          <div class="widget-head"><strong>Field Plan</strong><span class="badge">READY</span></div>
+          <div class="route"><span class="compass">▲</span><div><b>North Ridge Loop</b><span>Offline map downloaded · 6.2 km</span></div><em>42m</em></div>
+        </div>
+        <div class="apps">
+          <button class="app-btn" data-open="maps"><span class="icon i1">⌖</span><span>Trails</span></button>
+          <button class="app-btn" data-open="notes"><span class="icon i2">≡</span><span>Field Notes</span></button>
+          <button class="app-btn" data-open="kit"><span class="icon i3">✚</span><span>Go-Bag</span></button>
+          <button class="app-btn" data-open="weather"><span class="icon i4">⌁</span><span>Weather</span></button>
+          <button class="app-btn" data-open="contacts"><span class="icon i5">♧</span><span>Contacts</span></button>
+          <button class="app-btn" data-open="health"><span class="icon i6">♡</span><span>Health</span></button>
+          <button class="app-btn" data-open="photos"><span class="icon i7">▧</span><span>Photos</span></button>
+          <button class="app-btn" data-open="vault"><span class="icon i8">⌾</span><span>Archive</span></button>
+        </div>
+        <div class="dock">
+          <button class="app-btn" data-open="messages"><span class="icon i1">●</span></button>
+          <button class="app-btn" data-open="calls"><span class="icon i4">⌕</span></button>
+          <button class="app-btn" data-open="music"><span class="icon i3">♫</span></button>
+          <button class="app-btn" data-open="settings"><span class="icon i2">⚙</span></button>
+        </div>
+      </section>
+
+      <section class="app" id="messages">
+        <div class="app-head"><button class="back">‹</button><h2>Messages</h2></div>
+        <div class="card contact"><div class="avatar">K</div><div><b>Kouji</b><small>12 unread photos of “useful rocks”</small></div></div>
+        <div class="msg them">I found a tiny carabiner shaped like a heart. This is survival equipment now.</div>
+        <div class="msg me">That is not how equipment classification works.</div>
+        <div class="msg them">You kept it though.</div>
+        <div class="msg me">It has a functional clasp.</div>
+        <div class="card contact"><div class="avatar">A</div><div><b>Alice</b><small>Greenhouse access · tomorrow</small></div></div>
+        <div class="msg them">I checked the pressure limits twice.</div>
+        <div class="msg me">Check them a third time. I’m bringing manual vents.</div>
+      </section>
+
+      <section class="app" id="notes">
+        <div class="app-head"><button class="back">‹</button><h2>Field Notes</h2></div>
+        <div class="note"><h3>Tomorrow — supply check</h3><ul><li>Water filters × 3</li><li>Paracord, 20 m</li><li>Antihistamines + respirator</li><li>Route cards for everyone</li><li>Do not let Kouji pack “morale glitter”</li></ul></div>
+        <div class="card"><h3>PRIVATE · conversation redirects</h3><p>Ask about their gear. Compliment preparation. Change subject before family history comes up.</p></div>
+      </section>
+
+      <section class="app" id="kit">
+        <div class="app-head"><button class="back">‹</button><h2>Go-Bag</h2></div>
+        <div class="card"><h3>PRIMARY PACK · 84%</h3><p>Water, shelter, fire, navigation, first aid and two days of food confirmed.</p></div>
+        <div class="card sos"><h3>MEDICAL FLAG</h3><p>Strong floral scents may cause dizziness, nausea or fainting. Respirator stored in top pocket.</p></div>
+        <div class="card"><h3>SHARED LOADOUT</h3><p>Alice: gloves · Adair: radio · Kouji: snack pouch (inspected).</p></div>
+      </section>
+
+      <section class="app" id="maps">
+        <div class="app-head"><button class="back">‹</button><h2>Trails</h2></div>
+        <div class="card"><h3>OFFLINE REGION 04</h3><p>Three marked exits, two water sources, one unstable slope. Safer route highlighted after rainfall.</p></div>
+        <div class="widget"><div class="route"><span class="compass">▲</span><div><b>Fallback Point B</b><span>Old ranger shelter · dry storage</span></div><em>1.8 km</em></div></div>
+      </section>
+
+      <section class="app" id="contacts">
+        <div class="app-head"><button class="back">‹</button><h2>Contacts</h2></div>
+        <div class="card contact"><div class="avatar">S</div><div><b>Skyler Ezra</b><small>ICE contact · twin sister</small></div></div>
+        <div class="card contact"><div class="avatar">A</div><div><b>Alice Nexus</b><small>Greenhouse / field partner</small></div></div>
+        <div class="card contact"><div class="avatar">K</div><div><b>Kouji Yoshinari</b><small>Do not trust with packing labels</small></div></div>
+      </section>
+
+      <section class="app" id="health">
+        <div class="app-head"><button class="back">‹</button><h2>Health</h2></div>
+        <div class="card sos"><h3>SCENT EXPOSURE PROTOCOL</h3><p>Leave area. Fresh air. Sit or lie down. Do not “push through it.” Notify infirmary if symptoms persist.</p></div>
+        <div class="card"><h3>LAST CHECK-IN</h3><p>Hydration logged · sleep: 6h 12m · “Fine” is not a symptom report.</p></div>
+      </section>
+
+      <section class="app" id="vault">
+        <div class="app-head"><button class="back">‹</button><h2>Archive</h2></div>
+        <div class="card"><h3>LOCKED RECORD</h3><p>FOREST INCIDENT · AGE 12 · 7 DAYS<br><br>Access disabled. Local encryption only.</p></div>
+        <div class="card"><h3>FAMILY BUSINESS</h3><p>Muted keywords: lavender, acquisition, formula, patent dispute.</p></div>
+      </section>
+
+      <section class="app" id="weather"><div class="app-head"><button class="back">‹</button><h2>Weather</h2></div><div class="card"><h3>FIELD SUMMARY</h3><p>Overcast, cool, low wind. Rain after 18:00. Avoid the east slope after saturation.</p></div></section>
+      <section class="app" id="photos"><div class="app-head"><button class="back">‹</button><h2>Photos</h2></div><div class="card"><h3>RECENTS</h3><p>Trail markers · packed kits · edible plant references · one blurry group photo Ty insists was accidental.</p></div></section>
+      <section class="app" id="calls"><div class="app-head"><button class="back">‹</button><h2>Calls</h2></div><div class="card"><h3>RECENT</h3><p>Skyler · 18 min<br>Alice · 4 min<br>Unknown / Ezra Corporate · declined</p></div></section>
+      <section class="app" id="music"><div class="app-head"><button class="back">‹</button><h2>Music</h2></div><div class="card"><h3>NOW PLAYING</h3><p>Quiet instrumentals for route planning. Volume kept low enough to hear changes in the environment.</p></div></section>
+      <section class="app" id="settings"><div class="app-head"><button class="back">‹</button><h2>Settings</h2></div><div class="card"><h3>PRIVACY</h3><p>Location sharing: trusted contacts only<br>Emergency beacon: enabled<br>Corporate family group: muted indefinitely</p></div></section>
+    </div>
+  </main>
+
+  <aside class="sidebar">
+    <h1>Tyler “Ty” Ezra</h1>
+    <p>A polished field phone for the Ultimate Survivalist: calm, practical and reliable at first glance, with tightly controlled personal data beneath the surface.</p>
+    <span class="tag">Offline-first</span><span class="tag">Trail-ready</span><span class="tag">Scent alert</span><span class="tag">Private archive</span>
+    <p class="hint">Tap the app icons to explore. The interface is fully self-contained and responsive.</p>
+  </aside>
+</div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+function updateClock(){
+ const d=new Date(), t=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+ $('#clock').textContent=t; $('#statusTime').textContent=t;
+ $('#date').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric'});
+}
+updateClock(); setInterval(updateClock,1000);
+$$('[data-open]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.open)?.classList.add('open'));
+$$('.back').forEach(b=>b.onclick=()=>b.closest('.app').classList.remove('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.app.open').forEach(a=>a.classList.remove('open'))});
+</script>
+
+<link rel="stylesheet" href="../shared/network-ui.css">
+<script>window.PHONE_IDENTITY = { id: "tyler" };</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/phone-network.js"></script>
+</body>
+</html>

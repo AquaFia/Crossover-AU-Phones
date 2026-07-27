@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Meggie Harmon — Phone</title>
+<style>
+:root{
+  --night:#0a0b16; --deep:#12142a; --violet:#6d56b4; --lilac:#b59ae6;
+  --blue:#4c83c7; --cyan:#87d1e6; --green:#84d1ae; --pink:#d783c4;
+  --cream:#f2effb; --muted:#a9a4bd; --line:rgba(232,226,255,.18);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:grid;place-items:center;overflow:hidden;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
+  color:var(--cream);
+  background:
+    radial-gradient(circle at 17% 22%,rgba(109,86,180,.25),transparent 28%),
+    radial-gradient(circle at 83% 78%,rgba(76,131,199,.18),transparent 30%),
+    linear-gradient(135deg,#060712,#12152a 55%,#080912);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;
+  background:
+    repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.035) 4px),
+    linear-gradient(90deg,transparent 49.8%,rgba(181,154,230,.12) 50%,transparent 50.2%);
+}
+.stage{display:grid;grid-template-columns:minmax(320px,390px) 280px;gap:44px;align-items:center;padding:24px}
+.phone{
+  width:min(390px,92vw);height:min(820px,92vh);position:relative;padding:11px;
+  border-radius:51px;background:linear-gradient(145deg,#a7a9c2,#4d4b66 42%,#181827 62%,#8e8fa6);
+  box-shadow:0 40px 100px #000c,inset 0 0 0 1px #ffffff66,inset 0 0 20px #0b0b18;
+}
+.phone:before{content:"";position:absolute;left:-3px;top:170px;width:4px;height:92px;border-radius:4px;background:#77788c;box-shadow:0 120px #77788c}
+.screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:40px;background:#0e1020}
+.wallpaper{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(8,9,20,.05),rgba(8,9,20,.72)),
+    radial-gradient(circle at 70% 19%,rgba(135,209,230,.26),transparent 16%),
+    linear-gradient(145deg,#4b3e75,#283963 44%,#14172d 72%,#090b16);
+}
+.wallpaper:before{
+  content:"";position:absolute;inset:0;opacity:.5;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 17px,rgba(255,255,255,.035) 18px 19px),
+    linear-gradient(25deg,transparent 46%,rgba(181,154,230,.16) 47% 48%,transparent 49%),
+    linear-gradient(115deg,transparent 45%,rgba(135,209,230,.12) 46% 47%,transparent 48%);
+  background-size:auto,180px 180px,220px 220px;
+}
+.wallpaper:after{
+  content:"♪";position:absolute;right:22px;bottom:170px;font-size:150px;font-weight:800;color:#fff1;
+  transform:rotate(-10deg);text-shadow:9px 0 #87d1e611,-9px 0 #d783c411;
+}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:112px;height:28px;border-radius:18px;background:#04050a;z-index:30}
+.status{height:42px;padding:14px 21px 0;display:flex;justify-content:space-between;position:relative;z-index:20;font-size:12px;font-weight:800}
+.home,.app{position:absolute;inset:42px 0 0;padding:18px 21px 25px;transition:.4s cubic-bezier(.2,.8,.2,1)}
+.home{display:flex;flex-direction:column}
+.hero{margin-top:22px}
+.date{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#ded8f5}
+.clock{font:700 61px/1 Georgia,serif;letter-spacing:-.06em;text-shadow:3px 0 #87d1e644,-3px 0 #d783c444}
+.subtitle{font-size:13px;margin-top:6px;color:#e8e1f3}
+.player{
+  margin-top:21px;padding:16px;border-radius:24px;border:1px solid var(--line);
+  background:linear-gradient(135deg,rgba(238,233,255,.18),rgba(25,27,52,.5));
+  backdrop-filter:blur(16px);box-shadow:inset 0 1px #fff4,0 14px 30px #05061177;
+}
+.player-head{display:flex;justify-content:space-between;align-items:center}
+.player-head strong{font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+.live{font-size:10px;padding:4px 8px;border-radius:999px;background:#6d56b4}
+.track{display:grid;grid-template-columns:49px 1fr auto;gap:11px;align-items:center;margin-top:13px}
+.album{width:49px;height:49px;border-radius:13px;display:grid;place-items:center;font-size:23px;background:linear-gradient(145deg,#b59ae6,#4c83c7)}
+.track b{display:block;font-size:14px}.track span{font-size:10px;opacity:.7}.track em{font-style:normal;font-size:17px}
+.wave{height:22px;margin-top:12px;display:flex;gap:3px;align-items:center}
+.wave i{display:block;width:3px;border-radius:3px;background:#c4b5ec;animation:pulse 1.2s ease-in-out infinite}
+.wave i:nth-child(2n){animation-delay:.15s}.wave i:nth-child(3n){animation-delay:.3s}
+@keyframes pulse{0%,100%{height:5px}50%{height:20px}}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 13px;margin-top:auto}
+.app-btn{border:0;background:none;color:white;padding:0;text-align:center;cursor:pointer}
+.icon{width:57px;height:57px;margin:auto;border-radius:18px;display:grid;place-items:center;font-size:24px;border:1px solid #fff4;box-shadow:inset 0 1px #fff6,0 8px 18px #05061188}
+.app-btn span{display:block;font-size:9px;margin-top:6px;text-shadow:0 1px 4px #0b0d1d}
+.i1{background:linear-gradient(145deg,#b69de8,#5d4ca4)}.i2{background:linear-gradient(145deg,#87d1e6,#3975ad)}
+.i3{background:linear-gradient(145deg,#9fd8bd,#4d8c72)}.i4{background:linear-gradient(145deg,#d993c7,#82466f)}
+.i5{background:linear-gradient(145deg,#d7d6e8,#727387);color:#232338}.i6{background:linear-gradient(145deg,#8797c9,#48547d)}
+.i7{background:linear-gradient(145deg,#a9bad6,#4a647f)}.i8{background:linear-gradient(145deg,#4b4262,#171522)}
+.dock{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:21px;padding:10px;border-radius:25px;background:#f6efff18;border:1px solid #fff3;backdrop-filter:blur(18px)}
+.dock .icon{width:53px;height:53px}
+.app{transform:translateY(105%);background:linear-gradient(#131529,#090a14);z-index:10;overflow:auto}
+.app.open{transform:translateY(0)}
+.app-head{display:flex;align-items:center;gap:12px;margin:3px 0 19px}
+.back{border:1px solid var(--line);background:#ffffff09;color:white;border-radius:50%;width:35px;height:35px;font-size:18px;cursor:pointer}
+.app-head h2{margin:0;font:700 24px Georgia,serif}
+.card{padding:15px;border:1px solid var(--line);border-radius:18px;background:#ffffff08;margin:10px 0}
+.card h3{font-size:11px;letter-spacing:.11em;margin:0 0 8px;color:#c5b3ef}
+.card p{font-size:12px;line-height:1.5;margin:0;color:#ece7f4cf}
+.row{display:flex;gap:12px;align-items:center}
+.avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#7c68b7,#4674aa);font-weight:900}
+.row b{display:block}.row small{font-size:10px;opacity:.62}
+.msg{max-width:85%;padding:11px 13px;border-radius:17px;margin:9px 0;font-size:12px;line-height:1.4}
+.them{background:#ffffff10;border-bottom-left-radius:5px}.me{margin-left:auto;background:#574c8e;border-bottom-right-radius:5px}
+.lyric{font-family:Georgia,serif;font-style:italic;background:#18172a}
+.truth{border-color:#84d1ae55}.truth h3{color:#9ee3c2}
+.alert{border-color:#d783c455}.alert h3{color:#e4a3d2}
+.letter{background:#ece6f4;color:#2c2940;border-radius:7px;padding:15px;transform:rotate(-.7deg)}
+.letter h3,.letter p{color:#2c2940}
+.sidebar{color:#eee9f8}
+.sidebar h1{font:700 38px/1.02 Georgia,serif;margin:0 0 12px}
+.sidebar p{font-size:14px;line-height:1.6;color:#d9d2e7b2}
+.tag{display:inline-block;padding:7px 10px;border:1px solid #c5b3ef44;border-radius:999px;margin:4px 4px 0 0;font-size:10px}
+.hint{margin-top:24px;font-size:12px!important}
+@media(max-width:760px){.stage{display:block;padding:10px}.sidebar{display:none}.phone{height:94vh}}
+</style>
+</head>
+<body>
+<div class="stage">
+<main class="phone" aria-label="Meggie Harmon phone mockup">
+<div class="screen">
+<div class="wallpaper"></div><div class="island"></div>
+<div class="status"><span id="statusTime">10:42</span><span>▮▮▮ ᯤ 76%</span></div>
+
+<section class="home">
+  <div class="hero">
+    <div class="date" id="date">Friday, July 10</div>
+    <div class="clock" id="clock">10:42</div>
+    <div class="subtitle">Headphones on. World optional.</div>
+  </div>
+
+  <div class="player">
+    <div class="player-head"><strong>Now Playing</strong><span class="live">DEMO</span></div>
+    <div class="track"><span class="album">♫</span><div><b>Leave Before You Leave Me</b><span>Meggie Harmon · rough mix 07</span></div><em>Ⅱ</em></div>
+    <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="apps">
+    <button class="app-btn" data-open="music"><span class="icon i1">♫</span><span>Music</span></button>
+    <button class="app-btn" data-open="lyrics"><span class="icon i5">≡</span><span>Lyrics</span></button>
+    <button class="app-btn" data-open="studio"><span class="icon i2">◉</span><span>Studio</span></button>
+    <button class="app-btn" data-open="playlists"><span class="icon i4">♥</span><span>Playlists</span></button>
+    <button class="app-btn" data-open="truth"><span class="icon i3">?</span><span>Truth Check</span></button>
+    <button class="app-btn" data-open="band"><span class="icon i6">★</span><span>Band</span></button>
+    <button class="app-btn" data-open="letters"><span class="icon i7">✉</span><span>Letters</span></button>
+    <button class="app-btn" data-open="archive"><span class="icon i8">▣</span><span>Archive</span></button>
+  </div>
+
+  <div class="dock">
+    <button class="app-btn" data-open="messages"><span class="icon i3">●</span></button>
+    <button class="app-btn" data-open="calls"><span class="icon i2">⌕</span></button>
+    <button class="app-btn" data-open="photos"><span class="icon i4">▧</span></button>
+    <button class="app-btn" data-open="settings"><span class="icon i5">⚙</span></button>
+  </div>
+</section>
+
+<section class="app" id="messages">
+  <div class="app-head"><button class="back">‹</button><h2>Messages</h2></div>
+  <div class="card row"><div class="avatar">R</div><div><b>Ruby</b><small>best friend · pinned</small></div></div>
+  <div class="msg them">You vanished after rehearsal again.</div>
+  <div class="msg me">I was still in the building.</div>
+  <div class="msg them">That is not the same as answering texts.</div>
+  <div class="msg me">I sent you the bridge melody.</div>
+  <div class="msg them">…fine. It’s really good.</div>
+
+  <div class="card row"><div class="avatar">F</div><div><b>Fate</b><small>best friend · 3 voice notes</small></div></div>
+  <div class="msg them">You don’t have to apologize for taking up space.</div>
+  <div class="msg me">I know.</div>
+  <div class="msg them">That reply means you don’t know.</div>
+</section>
+
+<section class="app" id="music">
+  <div class="app-head"><button class="back">‹</button><h2>Music</h2></div>
+  <div class="card"><h3>RECENT DEMOS</h3><p>Leave Before You Leave Me · Static Hearts · Green Eye / Blue Eye · Orphanage Hallway Reverb · Loud Enough to Reach You</p></div>
+  <div class="card"><h3>INSTRUMENT</h3><p>Electric guitar · tuning checked · spare cable packed · distortion preset “violet bruise.”</p></div>
+</section>
+
+<section class="app" id="lyrics">
+  <div class="app-head"><button class="back">‹</button><h2>Lyrics</h2></div>
+  <div class="card lyric"><h3>UNTITLED 18</h3><p>“I learned every exit by the echo / every goodbye before the door / so if I play loud enough tonight / maybe someone stays for one song more.”</p></div>
+  <div class="card lyric"><h3>CHORUS NOTE</h3><p>Don’t resolve the final chord. Let it hang like a question nobody answered.</p></div>
+</section>
+
+<section class="app" id="studio">
+  <div class="app-head"><button class="back">‹</button><h2>Studio</h2></div>
+  <div class="card"><h3>SESSION 07</h3><p>Guitar: clean<br>Vocals: scratch take<br>Tempo: 112 BPM<br>Problem: bridge sounds too polite</p></div>
+  <div class="card"><h3>FIX</h3><p>Double the rhythm guitar, cut the reverb, leave the breath before the last line.</p></div>
+</section>
+
+<section class="app" id="playlists">
+  <div class="app-head"><button class="back">‹</button><h2>Playlists</h2></div>
+  <div class="card"><h3>DON’T TALK TO ME YET</h3><p>Heavy guitar, low lights, no cheerful interruptions.</p></div>
+  <div class="card"><h3>FOUND FAMILY, UNFORTUNATELY</h3><p>Ruby · Fate · songs Meggie pretends are not sentimental.</p></div>
+  <div class="card"><h3>TRIAL ROOM STATIC</h3><p>Tracks with clear percussion for thinking through contradictions.</p></div>
+</section>
+
+<section class="app" id="truth">
+  <div class="app-head"><button class="back">‹</button><h2>Truth Check</h2></div>
+  <div class="card truth"><h3>BULLSHIT DETECTOR</h3><p>Current read: someone is answering around the question instead of answering it.</p></div>
+  <div class="card"><h3>NOTES</h3><p>Watch hands, pauses, over-explaining, sudden topic changes, and apologies that never name what happened.</p></div>
+</section>
+
+<section class="app" id="band">
+  <div class="app-head"><button class="back">‹</button><h2>Band</h2></div>
+  <div class="card"><h3>REHEARSAL</h3><p>Tomorrow · 19:30<br>Bring amp cable, picks, backup strings, water, and the version of yourself that actually says when something hurts.</p></div>
+  <div class="card"><h3>GROUP ROLE</h3><p>Guitar · arrangement fixes · emotional honesty nobody requested but everyone needed.</p></div>
+</section>
+
+<section class="app" id="letters">
+  <div class="app-head"><button class="back">‹</button><h2>Letters</h2></div>
+  <div class="letter"><h3>APOLOGY DRAFT 12</h3><p>I know you tried to ruin my performance. I know I fixed it. I know none of that should make me feel guilty. I still wish the night had ended differently.</p></div>
+  <div class="card alert"><h3>DELIVERY STATUS</h3><p>Previous letters returned unopened.</p></div>
+</section>
+
+<section class="app" id="archive">
+  <div class="app-head"><button class="back">‹</button><h2>Archive</h2></div>
+  <div class="card"><h3>FAMILY RECORDINGS</h3><p>Old performances from before the popularity faded. Audio quality poor. Emotional quality worse.</p></div>
+  <div class="card"><h3>ORPHANAGE VOICE MEMOS</h3><p>Mostly room tone, hallway noise, and one unfinished melody recorded too quietly to hear.</p></div>
+</section>
+
+<section class="app" id="calls"><div class="app-head"><button class="back">‹</button><h2>Calls</h2></div><div class="card"><h3>RECENT</h3><p>Ruby · 46 min<br>Fate · 21 min<br>Unknown family contact · declined</p></div></section>
+<section class="app" id="photos"><div class="app-head"><button class="back">‹</button><h2>Photos</h2></div><div class="card"><h3>RECENTS</h3><p>Guitar strings · stage lights · headphones on a rehearsal chair · blurry group photo Meggie secretly favorited.</p></div></section>
+<section class="app" id="settings"><div class="app-head"><button class="back">‹</button><h2>Settings</h2></div><div class="card"><h3>AUDIO</h3><p>Noise cancellation: high<br>Message previews: hidden<br>Emergency contact bypass: Ruby + Fate<br>Auto-play cheerful playlists: disabled</p></div></section>
+</div>
+</main>
+
+<aside class="sidebar">
+  <h1>Meggie Harmon</h1>
+  <p>A moody purple-blue music phone for the Ultimate Musician: guarded on the surface, emotionally precise underneath, with songwriting, rehearsal tools, truth-check notes, found-family contacts, and private apology drafts.</p>
+  <span class="tag">ULTIMATE MUSICIAN</span><span class="tag">HEADPHONES ON</span><span class="tag">TRUTH CHECK</span><span class="tag">FOUND FAMILY</span>
+  <p class="hint">Tap the icons to explore her demos, lyrics, playlists, messages, emotional archive, and unopened letters.</p>
+</aside>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+function updateClock(){
+  const d=new Date(),t=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+  $('#clock').textContent=t;$('#statusTime').textContent=t;
+  $('#date').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric'});
+}
+updateClock();setInterval(updateClock,1000);
+$$('[data-open]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.open)?.classList.add('open'));
+$$('.back').forEach(b=>b.onclick=()=>b.closest('.app').classList.remove('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.app.open').forEach(a=>a.classList.remove('open'))});
+</script>
+
+<link rel="stylesheet" href="../shared/network-ui.css">
+<script>window.PHONE_IDENTITY = { id: "meggie" };</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/phone-network.js"></script>
+</body>
+</html>
