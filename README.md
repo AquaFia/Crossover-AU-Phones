@@ -1,15 +1,16 @@
-# Character Phone Network — Clean Restart
+# Character Phone Network v2 — Native Messages
 
-This project starts from the seven original uploaded phone HTML files.
+This version integrates live communication directly into each phone's original Messages app.
 
-## Preserved
+## What changed
 
-- Every phone remains one self-contained character HTML file.
-- Every original app, icon, panel, message sample, theme, and navigation handler remains present.
-- No character app list has been standardized.
-- The shared network only adds a two-tab area inside each existing Messages app:
-  - **Live Network** — real connected messages.
-  - **Saved Threads** — the original hard-coded character conversations.
+- The extra **Live Network / Saved Threads** tabs are gone.
+- Each Messages app now opens to a normal contact list.
+- Selecting a contact opens one continuous conversation.
+- The phone's original hardcoded conversation appears first as permanent saved history.
+- Messages sent through Supabase or local testing appear beneath it as live history.
+- A **Reset sent messages** control removes only live/network messages.
+- Hardcoded messages remain because they still live in the original HTML.
 
 ## Included phones
 
@@ -21,68 +22,64 @@ This project starts from the seven original uploaded phone HTML files.
 - Kouji Renran Yoshinari: `phones/kouji.html`
 - Tyler “Ty” Ezra: `phones/tyler.html`
 
-## Test locally
+## Important: update your existing Supabase project
 
-Open `index.html`, then open two phones in separate tabs.
+Because the reset feature needs delete permission, run the updated:
 
-1. Open each phone’s existing Messages app.
-2. Select **Live Network**.
-3. Choose the other character.
-4. Send a message.
-
-Without configuration, the phones communicate through `localStorage`. This works between tabs in the same browser.
-
-For best results, serve the folder instead of opening it through `file://`:
-
-```bash
-python -m http.server 8000
+```text
+supabase/schema.sql
 ```
 
-Then visit `http://localhost:8000`.
+You can run the complete file again. It safely recreates the policies and adds the reset/delete policy.
 
-## Enable free online communication with Supabase
+## Configure Supabase
 
-1. Create a free Supabase project.
-2. Open its SQL Editor.
-3. Run `supabase/schema.sql`.
-4. In Supabase, ensure Realtime is enabled for `phone_messages`.
-5. Edit `shared/supabase-config.js`:
+Edit:
+
+```text
+shared/supabase-config.js
+```
+
+Use:
 
 ```js
 window.PHONE_NETWORK_CONFIG = {
   enabled: true,
   supabaseUrl: "https://YOUR-PROJECT.supabase.co",
-  supabaseAnonKey: "YOUR-ANON-PUBLIC-KEY"
+  supabaseAnonKey: "YOUR-PUBLISHABLE-OR-ANON-KEY"
 };
 ```
 
-6. Host the folder on GitHub Pages, Netlify, Cloudflare Pages, or another static host.
+Never use a `service_role` or secret key in these files.
 
-Never place a Supabase `service_role` key in these HTML or JavaScript files. Only use the public anon key.
+## Test before GitHub
 
-## Adding future phones
+From the project folder:
 
-A future phone can remain a single HTML file.
-
-It needs:
-
-1. A Messages app with `id="messages"`.
-2. Its normal app navigation, unchanged.
-3. A roster entry in `shared/phone-network.js`.
-4. These four lines immediately before `</body>`:
-
-```html
-<link rel="stylesheet" href="../shared/network-ui.css">
-<script>
-window.PHONE_IDENTITY = { id: "new-character-id" };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../shared/supabase-config.js"></script>
-<script src="../shared/phone-network.js"></script>
+```bash
+python -m http.server 8000
 ```
 
-The shared script discovers the existing Messages app and injects the network interface. It does not alter the character’s other apps.
+Open:
 
-## Security note
+```text
+http://localhost:8000
+```
 
-The supplied SQL policies are intentionally permissive for a fictional prototype: anyone who can access the public site can read the fictional message table and send as one of the registered character IDs. Add real authentication and stricter policies before using the system for private or user-generated communication.
+Open two phones in separate tabs and send messages between them.
+
+## Reset behavior
+
+The **Reset sent messages** button appears at the top of every Messages app.
+
+After confirmation, it deletes all rows in `phone_messages`, including messages sent by any person using any of the character phones. It does not affect the hardcoded messages embedded in the HTML.
+
+This is intentionally a shared prototype reset. There is no user authentication yet, so anyone with access to the hosted phones can use it.
+
+## GitHub Pages
+
+After testing:
+
+1. Upload the entire folder to a GitHub repository.
+2. Keep `index.html`, `phones`, and `shared` together.
+3. Enable Pages from the `main` branch and repository root.
