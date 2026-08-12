@@ -1,0 +1,58 @@
+[
+  {
+    "phone": "jace",
+    "app_buttons": 12,
+    "missing_app_targets": [],
+    "messages_app_present": true,
+    "network_script_present": true,
+    "hardcoded_messages_present": 8
+  },
+  {
+    "phone": "damian",
+    "app_buttons": 12,
+    "missing_app_targets": [],
+    "messages_app_present": true,
+    "network_script_present": true,
+    "hardcoded_messages_present": 8
+  },
+  {
+    "phone": "meggie",
+    "app_buttons": 12,
+    "missing_app_targets": [],
+    "messages_app_present": true,
+    "network_script_present": true,
+    "hardcoded_messages_present": 8
+  },
+  {
+    "phone": "juno",
+    "app_buttons": 12,
+    "missing_app_targets": [],
+    "messages_app_present": true,
+    "network_script_present": true,
+    "hardcoded_messages_present": 9
+  },
+  {
+    "phone": "aria",
+    "app_buttons": 12,
+    "missing_app_targets": [],
+    "messages_app_present": true,
+    "network_script_present": true,
+    "hardcoded_messages_present": 7
+  },
+  {
+    "phone": "kouji",
+    "app_buttons": 12,
+    "missing_app_targets": [],
+    "messages_app_present": true,
+    "network_script_present": true,
+    "hardcoded_messages_present": 8
+  },
+  {
+    "phone": "tyler",
+    "app_buttons": 12,
+    "missing_app_targets": [],
+    "messages_app_present": true,
+    "network_script_present": true,
+    "hardcoded_messages_present": 6
+  }
+]
