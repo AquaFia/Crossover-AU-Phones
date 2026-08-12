@@ -83,3 +83,8 @@ After testing:
 1. Upload the entire folder to a GitHub repository.
 2. Keep `index.html`, `phones`, and `shared` together.
 3. Enable Pages from the `main` branch and repository root.
+
+
+## Scrollable home screens
+
+All seven phone home screens now scroll vertically when the available viewport is too short to display every app and dock icon at once. Scrollbars are hidden so the visual design remains unchanged.

@@ -32,3 +32,23 @@
 .pn-confirm-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
 .pn-confirm-actions button{border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:10px;background:#ffffff0c;color:white;cursor:pointer}
 .pn-confirm-actions .danger{background:#8e3340}
+
+
+/* Responsive home-screen scrolling.
+   Keeps each phone's original home layout intact while allowing access
+   to lower app rows/docks on shorter screens. */
+.home{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-y;
+  scrollbar-width:none;
+  min-height:0;
+}
+.home::-webkit-scrollbar{
+  display:none;
+}
+.home > :last-child{
+  flex-shrink:0;
+}
